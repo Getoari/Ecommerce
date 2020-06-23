@@ -1,5 +1,5 @@
 
-# Laravel-react-starter 🔥
+# Laravel-react🔥
 
 #### 1 - Steps
 
