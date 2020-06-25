@@ -50,7 +50,7 @@ const Footer = () => (
 
         <div className="footer-copyright py-3 text-center">
             © 2018 Copyright:
-            <a href="https://mdbootstrap.com/material-design-for-bootstrap/"> Bug Busters</a>
+            <a href="https://mdbootstrap.com/material-design-for-bootstrap/">Bug-Busters</a>
         </div>
 
 
