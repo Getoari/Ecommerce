@@ -16635,7 +16635,7 @@ var generatePath = function generatePath() {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(29);
-module.exports = __webpack_require__(92);
+module.exports = __webpack_require__(94);
 
 
 /***/ }),
@@ -69548,7 +69548,7 @@ module.exports = hoistNonReactStatics;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Header__ = __webpack_require__(88);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Main__ = __webpack_require__(89);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__footer__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__footer__ = __webpack_require__(93);
 
 
 
@@ -69637,24 +69637,911 @@ var Main = function Main() {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_Carousel__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_Widgets__ = __webpack_require__(92);
+
+
+
 
 
 var Home = function Home() {
-    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
-        null,
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'h1',
-            null,
-            ' Home route !'
-        )
-    );
+				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'div',
+								null,
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__home_Carousel__["a" /* default */], { title: 'New Products', position: '1' }),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', null),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__home_Carousel__["a" /* default */], { title: 'Top Selling', position: '2' }),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', null),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__home_Widgets__["a" /* default */], null)
+				);
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (Home);
 
 /***/ }),
 /* 91 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+
+
+var Carousel = function Carousel(props) {
+	return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+		"div",
+		null,
+		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			"div",
+			{ className: "section" },
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				"div",
+				{ className: "container" },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					"div",
+					{ className: "row" },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						"div",
+						{ className: "col-md-12" },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							"div",
+							{ className: "section-title" },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								"h3",
+								{ className: "title" },
+								props.title
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								"div",
+								{ className: "section-nav" },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									"ul",
+									{ className: "section-tab-nav tab-nav" },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										"li",
+										{ className: "active" },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											"a",
+											{ "data-toggle": "tab", href: "#tab" + props.position },
+											"Laptops"
+										)
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										"li",
+										null,
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											"a",
+											{ "data-toggle": "tab", href: "#tab" + props.position },
+											"Smartphones"
+										)
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										"li",
+										null,
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											"a",
+											{ "data-toggle": "tab", href: "#tab" + props.position },
+											"Cameras"
+										)
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										"li",
+										null,
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											"a",
+											{ "data-toggle": "tab", href: "#tab" + props.position },
+											"Accessories"
+										)
+									)
+								)
+							)
+						)
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						"div",
+						{ id: "post-container", className: "col-md-12" },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							"div",
+							{ className: "row" },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								"div",
+								{ className: "products-tabs" },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									"div",
+									{ id: "tab" + props.position, className: "tab-pane active" },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										"div",
+										{ className: "products-slick", "data-nav": "#slick-nav-" + props.position },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											"div",
+											{ className: "product" },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												"div",
+												{ className: "product-img" },
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: "./img/product01.png", alt: "" }),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"div",
+													{ className: "product-label" },
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														"span",
+														{ className: "sale" },
+														"-30%"
+													),
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														"span",
+														{ className: "new" },
+														"NEW"
+													)
+												)
+											),
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												"div",
+												{ className: "product-body" },
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"p",
+													{ className: "product-category" },
+													"Category"
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"h3",
+													{ className: "product-name" },
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														"a",
+														{ href: "#" },
+														"product name goes here"
+													)
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"h4",
+													{ className: "product-price" },
+													"$980.00 ",
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														"del",
+														{ className: "product-old-price" },
+														"$990.00"
+													)
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"div",
+													{ className: "product-rating" },
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-star" }),
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-star" }),
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-star" }),
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-star" }),
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-star" })
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"div",
+													{ className: "product-btns" },
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														"button",
+														{ className: "add-to-wishlist" },
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-heart-o" }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+															"span",
+															{ className: "tooltipp" },
+															"add to wishlist"
+														)
+													),
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														"button",
+														{ className: "add-to-compare" },
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-exchange" }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+															"span",
+															{ className: "tooltipp" },
+															"add to compare"
+														)
+													),
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														"button",
+														{ className: "quick-view" },
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-eye" }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+															"span",
+															{ className: "tooltipp" },
+															"quick view"
+														)
+													)
+												)
+											),
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												"div",
+												{ className: "add-to-cart" },
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"button",
+													{ className: "add-to-cart-btn" },
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-shopping-cart" }),
+													" add to cart"
+												)
+											)
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											"div",
+											{ className: "product" },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												"div",
+												{ className: "product-img" },
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: "./img/product02.png", alt: "" }),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"div",
+													{ className: "product-label" },
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														"span",
+														{ className: "new" },
+														"NEW"
+													)
+												)
+											),
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												"div",
+												{ className: "product-body" },
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"p",
+													{ className: "product-category" },
+													"Category"
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"h3",
+													{ className: "product-name" },
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														"a",
+														{ href: "#" },
+														"product name goes here"
+													)
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"h4",
+													{ className: "product-price" },
+													"$980.00 ",
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														"del",
+														{ className: "product-old-price" },
+														"$990.00"
+													)
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"div",
+													{ className: "product-rating" },
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-star" }),
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-star" }),
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-star" }),
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-star" }),
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-star-o" })
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"div",
+													{ className: "product-btns" },
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														"button",
+														{ className: "add-to-wishlist" },
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-heart-o" }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+															"span",
+															{ className: "tooltipp" },
+															"add to wishlist"
+														)
+													),
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														"button",
+														{ className: "add-to-compare" },
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-exchange" }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+															"span",
+															{ className: "tooltipp" },
+															"add to compare"
+														)
+													),
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														"button",
+														{ className: "quick-view" },
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-eye" }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+															"span",
+															{ className: "tooltipp" },
+															"quick view"
+														)
+													)
+												)
+											),
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												"div",
+												{ className: "add-to-cart" },
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"button",
+													{ className: "add-to-cart-btn" },
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-shopping-cart" }),
+													" add to cart"
+												)
+											)
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											"div",
+											{ className: "product" },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												"div",
+												{ className: "product-img" },
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: "./img/product03.png", alt: "" }),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"div",
+													{ className: "product-label" },
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														"span",
+														{ className: "sale" },
+														"-30%"
+													)
+												)
+											),
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												"div",
+												{ className: "product-body" },
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"p",
+													{ className: "product-category" },
+													"Category"
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"h3",
+													{ className: "product-name" },
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														"a",
+														{ href: "#" },
+														"product name goes here"
+													)
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"h4",
+													{ className: "product-price" },
+													"$980.00 ",
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														"del",
+														{ className: "product-old-price" },
+														"$990.00"
+													)
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: "product-rating" }),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"div",
+													{ className: "product-btns" },
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														"button",
+														{ className: "add-to-wishlist" },
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-heart-o" }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+															"span",
+															{ className: "tooltipp" },
+															"add to wishlist"
+														)
+													),
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														"button",
+														{ className: "add-to-compare" },
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-exchange" }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+															"span",
+															{ className: "tooltipp" },
+															"add to compare"
+														)
+													),
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														"button",
+														{ className: "quick-view" },
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-eye" }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+															"span",
+															{ className: "tooltipp" },
+															"quick view"
+														)
+													)
+												)
+											),
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												"div",
+												{ className: "add-to-cart" },
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"button",
+													{ className: "add-to-cart-btn" },
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-shopping-cart" }),
+													" add to cart"
+												)
+											)
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											"div",
+											{ className: "product" },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												"div",
+												{ className: "product-img" },
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: "./img/product04.png", alt: "" })
+											),
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												"div",
+												{ className: "product-body" },
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"p",
+													{ className: "product-category" },
+													"Category"
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"h3",
+													{ className: "product-name" },
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														"a",
+														{ href: "#" },
+														"product name goes here"
+													)
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"h4",
+													{ className: "product-price" },
+													"$980.00 ",
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														"del",
+														{ className: "product-old-price" },
+														"$990.00"
+													)
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"div",
+													{ className: "product-rating" },
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-star" }),
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-star" }),
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-star" }),
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-star" }),
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-star" })
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"div",
+													{ className: "product-btns" },
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														"button",
+														{ className: "add-to-wishlist" },
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-heart-o" }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+															"span",
+															{ className: "tooltipp" },
+															"add to wishlist"
+														)
+													),
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														"button",
+														{ className: "add-to-compare" },
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-exchange" }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+															"span",
+															{ className: "tooltipp" },
+															"add to compare"
+														)
+													),
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														"button",
+														{ className: "quick-view" },
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-eye" }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+															"span",
+															{ className: "tooltipp" },
+															"quick view"
+														)
+													)
+												)
+											),
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												"div",
+												{ className: "add-to-cart" },
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"button",
+													{ className: "add-to-cart-btn" },
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-shopping-cart" }),
+													" add to cart"
+												)
+											)
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											"div",
+											{ className: "product" },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												"div",
+												{ className: "product-img" },
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: "./img/product05.png", alt: "" })
+											),
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												"div",
+												{ className: "product-body" },
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"p",
+													{ className: "product-category" },
+													"Category"
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"h3",
+													{ className: "product-name" },
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														"a",
+														{ href: "#" },
+														"product name goes here"
+													)
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"h4",
+													{ className: "product-price" },
+													"$980.00 ",
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														"del",
+														{ className: "product-old-price" },
+														"$990.00"
+													)
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"div",
+													{ className: "product-rating" },
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-star" }),
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-star" }),
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-star" }),
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-star" }),
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-star" })
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"div",
+													{ className: "product-btns" },
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														"button",
+														{ className: "add-to-wishlist" },
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-heart-o" }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+															"span",
+															{ className: "tooltipp" },
+															"add to wishlist"
+														)
+													),
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														"button",
+														{ className: "add-to-compare" },
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-exchange" }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+															"span",
+															{ className: "tooltipp" },
+															"add to compare"
+														)
+													),
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														"button",
+														{ className: "quick-view" },
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-eye" }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+															"span",
+															{ className: "tooltipp" },
+															"quick view"
+														)
+													)
+												)
+											),
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												"div",
+												{ className: "add-to-cart" },
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													"button",
+													{ className: "add-to-cart-btn" },
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-shopping-cart" }),
+													" add to cart"
+												)
+											)
+										)
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { id: "slick-nav-" + props.position, className: "products-slick-nav" })
+								)
+							)
+						)
+					)
+				)
+			)
+		)
+	);
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (Carousel);
+
+/***/ }),
+/* 92 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+
+
+var WidgetColumn = function WidgetColumn(props) {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        "div",
+        null,
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "div",
+            { className: "section-title" },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "h4",
+                { className: "title" },
+                props.title
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "div",
+                { className: "section-nav" },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { id: "slick-nav-" + props.position, className: "products-slick-nav" })
+            )
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "div",
+            { className: "products-widget-slick", "data-nav": "#slick-nav-" + props.position },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "div",
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    "div",
+                    { className: "product-widget" },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "div",
+                        { className: "product-img" },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: "./img/product07.png", alt: "" })
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "div",
+                        { className: "product-body" },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            "p",
+                            { className: "product-category" },
+                            "Category"
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            "h3",
+                            { className: "product-name" },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                "a",
+                                { href: "#" },
+                                "product name goes here"
+                            )
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            "h4",
+                            { className: "product-price" },
+                            "$980.00 ",
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                "del",
+                                { className: "product-old-price" },
+                                "$990.00"
+                            )
+                        )
+                    )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    "div",
+                    { className: "product-widget" },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "div",
+                        { className: "product-img" },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: "./img/product08.png", alt: "" })
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "div",
+                        { className: "product-body" },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            "p",
+                            { className: "product-category" },
+                            "Category"
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            "h3",
+                            { className: "product-name" },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                "a",
+                                { href: "#" },
+                                "product name goes here"
+                            )
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            "h4",
+                            { className: "product-price" },
+                            "$980.00 ",
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                "del",
+                                { className: "product-old-price" },
+                                "$990.00"
+                            )
+                        )
+                    )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    "div",
+                    { className: "product-widget" },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "div",
+                        { className: "product-img" },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: "./img/product09.png", alt: "" })
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "div",
+                        { className: "product-body" },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            "p",
+                            { className: "product-category" },
+                            "Category"
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            "h3",
+                            { className: "product-name" },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                "a",
+                                { href: "#" },
+                                "product name goes here"
+                            )
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            "h4",
+                            { className: "product-price" },
+                            "$980.00 ",
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                "del",
+                                { className: "product-old-price" },
+                                "$990.00"
+                            )
+                        )
+                    )
+                )
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "div",
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    "div",
+                    { className: "product-widget" },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "div",
+                        { className: "product-img" },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: "./img/product01.png", alt: "" })
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "div",
+                        { className: "product-body" },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            "p",
+                            { className: "product-category" },
+                            "Category"
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            "h3",
+                            { className: "product-name" },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                "a",
+                                { href: "#" },
+                                "product name goes here"
+                            )
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            "h4",
+                            { className: "product-price" },
+                            "$980.00 ",
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                "del",
+                                { className: "product-old-price" },
+                                "$990.00"
+                            )
+                        )
+                    )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    "div",
+                    { className: "product-widget" },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "div",
+                        { className: "product-img" },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: "./img/product02.png", alt: "" })
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "div",
+                        { className: "product-body" },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            "p",
+                            { className: "product-category" },
+                            "Category"
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            "h3",
+                            { className: "product-name" },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                "a",
+                                { href: "#" },
+                                "product name goes here"
+                            )
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            "h4",
+                            { className: "product-price" },
+                            "$980.00 ",
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                "del",
+                                { className: "product-old-price" },
+                                "$990.00"
+                            )
+                        )
+                    )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    "div",
+                    { className: "product-widget" },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "div",
+                        { className: "product-img" },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: "./img/product03.png", alt: "" })
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "div",
+                        { className: "product-body" },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            "p",
+                            { className: "product-category" },
+                            "Category"
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            "h3",
+                            { className: "product-name" },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                "a",
+                                { href: "#" },
+                                "product name goes here"
+                            )
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            "h4",
+                            { className: "product-price" },
+                            "$980.00 ",
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                "del",
+                                { className: "product-old-price" },
+                                "$990.00"
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    );
+};
+
+var Widgets = function Widgets(props) {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        "div",
+        null,
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "div",
+            { className: "section" },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "div",
+                { className: "container" },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    "div",
+                    { className: "row" },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "div",
+                        { className: "col-md-4 col-xs-6" },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(WidgetColumn, { title: "Top selling", position: "3" })
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "div",
+                        { className: "col-md-4 col-xs-6" },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(WidgetColumn, { title: "Top selling", position: "4" })
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "div",
+                        { className: "col-md-4 col-xs-6" },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(WidgetColumn, { title: "Top selling", position: "5" })
+                    )
+                )
+            )
+        )
+    );
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (Widgets);
+
+/***/ }),
+/* 93 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69743,7 +70630,7 @@ var Footer = function Footer() {
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 "a",
                 { href: "https://mdbootstrap.com/material-design-for-bootstrap/" },
-                " MDBootstrap.com "
+                "Bug Busters"
             )
         )
     );
@@ -69752,7 +70639,7 @@ var Footer = function Footer() {
 /* harmony default export */ __webpack_exports__["a"] = (Footer);
 
 /***/ }),
-/* 92 */
+/* 94 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

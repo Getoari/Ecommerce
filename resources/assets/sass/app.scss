@@ -1,9 +1,15 @@
 
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700");
 
 // Variables
 @import "variables";
+
+// Custom CSS
+@import '../css/font-awesome.min.css';
+@import '../css/slick-theme.css';
+@import '../css/slick.css';
+@import '../css/carousel.css';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
