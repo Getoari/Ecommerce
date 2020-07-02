@@ -1,119 +1,145 @@
-import React from 'react'
+import React, { Component } from 'react'
+import Slider from 'react-slick'
 
-const WidgetColumn = (props) => (
-    <div>
-        <div className="section-title">
-			<h4 className="title">{props.title}</h4>
-            <div className="section-nav">
-                <div id={"slick-nav-" + props.position} className="products-slick-nav"></div>
-            </div>
-        </div>
+class WidgetColumn extends Component {
+    constructor(props) {
+        super(props)
+    }
 
-        <div className="products-widget-slick" data-nav={"#slick-nav-" + props.position} >
+    render() {
+
+        var settings = {
+            infinite: true,
+			autoplay: true,
+			speed: 300,
+			dots: true,
+			arrows: false,    
+        }
+
+        return (
             <div>
-                {/* <!-- product widget --> */}
-                <div className="product-widget">
-                    <div className="product-img">
-                        <img src="./img/product07.png" alt="" />
-                    </div>
-                    <div className="product-body">
-                        <p className="product-category">Category</p>
-                        <h3 className="product-name"><a href="#">product name goes here</a></h3>
-                        <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
+                <div className="section-title">
+                    <h4 className="title">{this.props.title}</h4>
+                    <div className="section-nav">
+                        <div id="slick-nav-1" className="products-slick-nav"></div>
                     </div>
                 </div>
-                {/* <!-- /product widget -->
 
-                <!-- product widget --> */}
-                <div className="product-widget">
-                    <div className="product-img">
-                        <img src="./img/product08.png" alt="" />
-                    </div>
-                    <div className="product-body">
-                        <p className="product-category">Category</p>
-                        <h3 className="product-name"><a href="#">product name goes here</a></h3>
-                        <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
-                    </div>
-                </div>
-                {/* <!-- /product widget -->
+                <div className="products-widget-slick" data-nav="#slick-nav-1" >
+                    <div>
+                    <Slider {...settings}>
+                        <div>
+                            {/* <!-- product widget --> */}
+                            <div className="product-widget">
+                                <div className="product-img">
+                                    <img src="./img/product07.png" alt="" />
+                                </div>
+                                <div className="product-body">
+                                    <p className="product-category">Category</p>
+                                    <h3 className="product-name"><a href="#">product name goes here</a></h3>
+                                    <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
+                                </div>
+                            </div>
+                            {/* <!-- /product widget -->
 
-                <!-- product widget --> */}
-                <div className="product-widget">
-                    <div className="product-img">
-                        <img src="./img/product09.png" alt="" />
-                    </div>
-                    <div className="product-body">
-                        <p className="product-category">Category</p>
-                        <h3 className="product-name"><a href="#">product name goes here</a></h3>
-                        <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
+                            <!-- product widget --> */}
+                            <div className="product-widget">
+                                <div className="product-img">
+                                    <img src="./img/product08.png" alt="" />
+                                </div>
+                                <div className="product-body">
+                                    <p className="product-category">Category</p>
+                                    <h3 className="product-name"><a href="#">product name goes here</a></h3>
+                                    <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
+                                </div>
+                            </div>
+                            {/* <!-- /product widget -->
+
+                            <!-- product widget --> */}
+                            <div className="product-widget">
+                                <div className="product-img">
+                                    <img src="./img/product09.png" alt="" />
+                                </div>
+                                <div className="product-body">
+                                    <p className="product-category">Category</p>
+                                    <h3 className="product-name"><a href="#">product name goes here</a></h3>
+                                    <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
+                                </div>
+                            </div>
+                            {/* <!-- product widget --> */}
+                        </div>
+
+                        <div>
+                            {/* <!-- product widget --> */}
+                            <div className="product-widget">
+                                <div className="product-img">
+                                    <img src="./img/product01.png" alt="" />
+                                </div>
+                                <div className="product-body">
+                                    <p className="product-category">Category</p>
+                                    <h3 className="product-name"><a href="#">product name goes here</a></h3>
+                                    <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
+                                </div>
+                            </div>
+                            {/* <!-- /product widget -->
+
+                            <!-- product widget --> */}
+                            <div className="product-widget">
+                                <div className="product-img">
+                                    <img src="./img/product02.png" alt="" />
+                                </div>
+                                <div className="product-body">
+                                    <p className="product-category">Category</p>
+                                    <h3 className="product-name"><a href="#">product name goes here</a></h3>
+                                    <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
+                                </div>
+                            </div>
+                            {/* <!-- /product widget -->
+
+                            <!-- product widget --> */}
+                            <div className="product-widget">
+                                <div className="product-img">
+                                    <img src="./img/product03.png" alt="" />
+                                </div>
+                                <div className="product-body">
+                                    <p className="product-category">Category</p>
+                                    <h3 className="product-name"><a href="#">product name goes here</a></h3>
+                                    <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
+                                </div>
+                            </div>
+                            {/* <!-- product widget --> */}
+                        </div>
+                        </Slider>
                     </div>
                 </div>
-                {/* <!-- product widget --> */}
             </div>
+        )
+    }
+}
 
-            <div>
-                {/* <!-- product widget --> */}
-                <div className="product-widget">
-                    <div className="product-img">
-                        <img src="./img/product01.png" alt="" />
-                    </div>
-                    <div className="product-body">
-                        <p className="product-category">Category</p>
-                        <h3 className="product-name"><a href="#">product name goes here</a></h3>
-                        <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
-                    </div>
-                </div>
-                {/* <!-- /product widget -->
+class Widgets extends Component {
+    constructor(props) {
+        super(props)
+    }
 
-                <!-- product widget --> */}
-                <div className="product-widget">
-                    <div className="product-img">
-                        <img src="./img/product02.png" alt="" />
-                    </div>
-                    <div className="product-body">
-                        <p className="product-category">Category</p>
-                        <h3 className="product-name"><a href="#">product name goes here</a></h3>
-                        <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
-                    </div>
-                </div>
-                {/* <!-- /product widget -->
-
-                <!-- product widget --> */}
-                <div className="product-widget">
-                    <div className="product-img">
-                        <img src="./img/product03.png" alt="" />
-                    </div>
-                    <div className="product-body">
-                        <p className="product-category">Category</p>
-                        <h3 className="product-name"><a href="#">product name goes here</a></h3>
-                        <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
-                    </div>
-                </div>
-                {/* <!-- product widget --> */}
-            </div>
-        </div>
-    </div>				
-)
-
-const Widgets = (props) => (
-    <div>
-
-		<div className="section">
+    render() {
+        return (
+            <div className="section">
 			{/* <!-- container --> */}
 			<div className="container">
 				{/* <!-- row --> */}
 				<div className="row">
 
 					<div className="col-md-4 col-xs-6">
-						<WidgetColumn title="Top selling" position="3" />
+						<WidgetColumn title="Top selling"/>
                     </div>					
 					
 					<div className="col-md-4 col-xs-6">
-						<WidgetColumn title="Top selling" position="4"/>
+						<WidgetColumn title="Top selling"/>
 					</div>
 
 					<div className="col-md-4 col-xs-6">
-						<WidgetColumn title="Top selling" position="5" />	
+						<WidgetColumn title="Top selling"/>	
 					</div>
 
 				</div>
@@ -121,8 +147,8 @@ const Widgets = (props) => (
 			</div>
 			{/* <!-- /container --> */}
 		</div>
-
-    </div>
-)
+        )
+    }
+} 
 
 export default Widgets

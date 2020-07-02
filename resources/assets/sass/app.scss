@@ -5,10 +5,14 @@
 // Variables
 @import "variables";
 
+// Slick Theme CSS
+@import "~slick-carousel/slick/slick.css"; 
+@import "~slick-carousel/slick/slick-theme.css";
+
 // Custom CSS
+@import '../css/modal.css';
 @import '../css/font-awesome.min.css';
-@import '../css/slick-theme.css';
-@import '../css/slick.css';
+@import '../css/main.css';
 @import '../css/carousel.css';
 
 // Bootstrap

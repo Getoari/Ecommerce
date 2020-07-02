@@ -6,9 +6,9 @@ import Widgets from './home/Widgets'
 const Home = () => (
     <div>
 
-		<Carousel title="New Products" position="1" />
+		<Carousel title="New Products" id="1" />
 		<hr/>
-		<Carousel title="Top Selling" position="2" />
+		<Carousel title="Top Selling" id="1" />
 		<hr/>
         <Widgets />
 
