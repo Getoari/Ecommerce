@@ -1,9 +1,16 @@
 import React from 'react'
 
+import Carousel from './home/Carousel'
+import Widgets from './home/Widgets'
+
 const Home = () => (
     <div>
 
-        <h1> Home route !</h1>
+		<Carousel title="New Products" id="1" />
+		<hr/>
+		<Carousel title="Top Selling" id="1" />
+		<hr/>
+        <Widgets />
 
     </div>
 )
