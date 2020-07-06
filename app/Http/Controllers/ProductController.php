@@ -16,7 +16,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $product = Product::with('category')->findOrFail($id);
+        $product = Product::with('category', 'stocks')->findOrFail($id);
 
         if ($product->reviews()) {
             $product['review'] = $product->reviews()->avg('rating');
@@ -25,4 +25,6 @@ class ProductController extends Controller
 
         return $product;
     }
+
+
 }

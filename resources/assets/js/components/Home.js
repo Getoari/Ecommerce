@@ -8,9 +8,9 @@ const Home = () => (
 
 		<Carousel title="New Products" id="1" />
 		<hr/>
-		<Carousel title="Top Selling" id="1" />
+		<Carousel title="Top Selling" id="2" />
 		<hr/>
-        <Widgets />
+        {/* <Widgets /> */}
 
     </div>
 )
