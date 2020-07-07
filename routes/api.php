@@ -23,3 +23,4 @@ Route::get('/product/categories/{id}/top-selling', 'ProductCategoriesController@
 Route::get('/product/categories/{id}/new', 'ProductCategoriesController@new');
 Route::resource('/product/categories', 'ProductCategoriesController');
 
+Route::post('/newsletter', 'NewsLetterController@store');
