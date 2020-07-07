@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import Slider from 'react-slick'
+import Spinner from 'react-bootstrap/Spinner'
 
 import QuickView from './QuickView'
 
@@ -9,6 +10,7 @@ class Carousel extends Component {
 		super(props)
 
 		this.state = {
+			loading: true,
 			currentCategory: 1,
 			categories: [],
 			products: []
@@ -18,18 +20,13 @@ class Carousel extends Component {
 	}
 
 	componentDidMount() {
-		this.getCategories()
-		
-		if(this.props.id == 1) {
-			this.getNewProducts(1)
-		} else {
-			// this.getTopSelling()
-		}
 
+		this.getCategories()
+		this.getProducts(1)
 	}
 
 	getCategories() {
-		axios.get('api/product/categories').then((
+		axios.get('/api/product/categories').then((
             response 
         ) => {
             this.setState({
@@ -44,16 +41,25 @@ class Carousel extends Component {
 		e.preventDefault()
 
 		const id = e.target.id
-		this.getNewProducts(id)
+		this.getProducts(id)
 		this.setState({currentCategory: id})
 	}
 
-	getNewProducts(categoryId) {
-		axios.get(`api/product/categories/${categoryId}/new`).then((
+	getProducts(categoryId) {
+
+		var query;
+
+		if(this.props.id == 1) 
+			query = 'new'
+		else
+			query = 'top-selling'
+
+		axios.get(`/api/product/categories/${categoryId}/${query}`).then((
             response 
         ) => {
             this.setState({
-				products: [...response.data]
+				products: [...response.data],
+				loading: false
             })
         }).catch(function (error) {
             console.log(error)
@@ -109,8 +115,9 @@ class Carousel extends Component {
 								</div>
 							</div>
 							{/* <!-- /section title -->
-
+							
 							<!-- Products tab & slick --> */}
+							{this.state.loading ? <div className="spinner-container"><Spinner animation="border" /></div> :
 							<div id="product-container" className="col-md-12">
 								<div className="row">
 									<div className="products-tabs">
@@ -119,7 +126,7 @@ class Carousel extends Component {
 											<div className="products-slick" data-nav={"#slick-nav-" + this.props.id}>
 												
 												<Slider {...settings}>
-												{ this.state.products.length > 3 && this.state.products.map(product => (
+												 {this.state.products.length > 3 && this.state.products.map(product => (
 													<div key={product.id} className="product">
 														<div className="product-img">
 															<img src={`./img/${JSON.parse(product.photo)[0]}`} alt={JSON.parse(product.photo)[0]} />
@@ -164,7 +171,7 @@ class Carousel extends Component {
 										{/* <!-- /tab --> */}
 									</div>
 								</div>
-							</div>
+							</div>}
 							{/* <!-- Products tab & slick --> */}
 						</div>
 						{/* <!-- /row --> */}

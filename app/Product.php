@@ -21,4 +21,9 @@ class Product extends Model
     public function reviews() {
         return $this->hasMany('App\Review');
     }
+
+    public function stocks()
+    {
+        return $this->hasMany('App\Stock');
+    }
 }

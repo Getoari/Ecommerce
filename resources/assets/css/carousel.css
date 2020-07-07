@@ -272,6 +272,7 @@
   text-transform: uppercase;
   font-size: 10px;
   color: #8D99AE;
+  margin-bottom: 10px;
 }
 
 .product-widget .product-body .product-name {
@@ -452,4 +453,23 @@
 
 #product-container > .row {
   display: block;
+}
+
+.loading-spinner {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.spinner-border {
+  width: 3em !important;
+  height: 3em !important; 
+}
+
+.spinner-container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 200px;
+  width: 100%;
 }
