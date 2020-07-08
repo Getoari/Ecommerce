@@ -4,7 +4,29 @@ import Slider from 'react-slick'
 class WidgetColumn extends Component {
     constructor(props) {
         super(props)
+        
+        this.state = {
+			products: []
+		}
     }
+
+    componentDidMount() {
+
+		this.getProducts()
+	}
+
+    getProducts() {
+
+		axios.get(`/api/product/categories/1/top-selling`).then((
+            response 
+        ) => {
+            this.setState({
+				products: [...response.data]
+            })
+        }).catch(function (error) {
+            console.log(error)
+        })
+	}
 
     render() {
 
@@ -26,91 +48,52 @@ class WidgetColumn extends Component {
                 </div>
 
                 <div className="products-widget-slick" data-nav="#slick-nav-1" >
-                    <div>
                     <Slider {...settings}>
-                        <div>
-                            {/* <!-- product widget --> */}
+                    <div>
+                    { this.state.products.map((product, index) => (
+                        <React.Fragment key={product.id}>
+                            { index < 3 && 
                             <div className="product-widget">
                                 <div className="product-img">
-                                    <img src="./img/product07.png" alt="" />
+                                    <img src={`./img/${JSON.parse(product.photo)[0]}`} alt={JSON.parse(product.photo)[0]} />
                                 </div>
                                 <div className="product-body">
-                                    <p className="product-category">Category</p>
-                                    <h3 className="product-name"><a href="#">product name goes here</a></h3>
-                                    <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
+                                    <p className="product-category">{product.category.name}</p>
+                                    <h3 className="product-name"><a href="#">{product.name}</a></h3>
+                                    {
+                                        (new Date(product.sale_expires).getTime() > new Date().getTime()) ? 
+                                        <h4 className="product-price">${product.price - (product.price * product.sale)} <del className="product-old-price">${product.price}</del></h4>
+                                        :
+                                        <h4 className="product-price">${product.price}</h4>
+                                    }
                                 </div>
-                            </div>
-                            {/* <!-- /product widget -->
-
-                            <!-- product widget --> */}
-                            <div className="product-widget">
-                                <div className="product-img">
-                                    <img src="./img/product08.png" alt="" />
-                                </div>
-                                <div className="product-body">
-                                    <p className="product-category">Category</p>
-                                    <h3 className="product-name"><a href="#">product name goes here</a></h3>
-                                    <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
-                                </div>
-                            </div>
-                            {/* <!-- /product widget -->
-
-                            <!-- product widget --> */}
-                            <div className="product-widget">
-                                <div className="product-img">
-                                    <img src="./img/product09.png" alt="" />
-                                </div>
-                                <div className="product-body">
-                                    <p className="product-category">Category</p>
-                                    <h3 className="product-name"><a href="#">product name goes here</a></h3>
-                                    <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
-                                </div>
-                            </div>
-                            {/* <!-- product widget --> */}
-                        </div>
-
-                        <div>
-                            {/* <!-- product widget --> */}
-                            <div className="product-widget">
-                                <div className="product-img">
-                                    <img src="./img/product01.png" alt="" />
-                                </div>
-                                <div className="product-body">
-                                    <p className="product-category">Category</p>
-                                    <h3 className="product-name"><a href="#">product name goes here</a></h3>
-                                    <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
-                                </div>
-                            </div>
-                            {/* <!-- /product widget -->
-
-                            <!-- product widget --> */}
-                            <div className="product-widget">
-                                <div className="product-img">
-                                    <img src="./img/product02.png" alt="" />
-                                </div>
-                                <div className="product-body">
-                                    <p className="product-category">Category</p>
-                                    <h3 className="product-name"><a href="#">product name goes here</a></h3>
-                                    <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
-                                </div>
-                            </div>
-                            {/* <!-- /product widget -->
-
-                            <!-- product widget --> */}
-                            <div className="product-widget">
-                                <div className="product-img">
-                                    <img src="./img/product03.png" alt="" />
-                                </div>
-                                <div className="product-body">
-                                    <p className="product-category">Category</p>
-                                    <h3 className="product-name"><a href="#">product name goes here</a></h3>
-                                    <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
-                                </div>
-                            </div>
-                            {/* <!-- product widget --> */}
-                        </div>
-                        </Slider>
+                            </div>}
+                        </React.Fragment>
+                    ))}
                     </div>
+                    <div>
+                    { this.state.products.map((product, index) => (
+                        <React.Fragment key={product.id}>
+                            { (index >= 3 && index < 6) && 
+                            <div className="product-widget">
+                                <div className="product-img">
+                                    <img src={`./img/${JSON.parse(product.photo)[0]}`} alt={JSON.parse(product.photo)[0]} />
+                                </div>
+                                <div className="product-body">
+                                    <p className="product-category">{product.category.name}</p>
+                                    <h3 className="product-name"><a href="#">{product.name}</a></h3>
+                                    {
+                                        (new Date(product.sale_expires).getTime() > new Date().getTime()) ? 
+                                        <h4 className="product-price">${product.price - (product.price * product.sale)} <del className="product-old-price">${product.price}</del></h4>
+                                        :
+                                        <h4 className="product-price">${product.price}</h4>
+                                    }
+                                </div>
+                            </div>}
+                        </React.Fragment>
+                    ))}
+                    </div>    
+                    </Slider>
                 </div>
             </div>
         )

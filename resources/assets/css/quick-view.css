@@ -7,6 +7,10 @@
       Product details
   \*----------------------------*/
   
+.modal-body {
+  padding: 5px;
+}
+
 .modal-body .product-details .product-name {
     text-transform: uppercase;
     font-size: 18px;
@@ -67,9 +71,11 @@
     margin-right: 15px;
     margin-bottom: 0px;
   }
-  
+
 .modal-body .product-details .product-options .input-select {
     width: 90px;
+    padding: 0;
+    margin: 0 10px;
   }
   
 .modal-body .product-details .add-to-cart {
@@ -126,6 +132,7 @@
 .modal-body .product-details .add-to-cart .qty-label .input-number {
     width: 90px;
     display: inline-block;
+    margin: 0 10px;
   }
   
 .modal-body .product-details .product-btns li {
@@ -383,7 +390,7 @@
     color: #D10024;
   }
 
- .modal-body > button {
+ .modal-body > a > button {
     border: 2px solid transparent;
     height: 40px;
     padding: 0 30px;
@@ -398,9 +405,55 @@
     text-align: center;
   }
 
-  .modal-body > button:hover {
+  .modal-body > a > button:hover {
     background-color: #FFF;
     color: #D10024;
     border-color: #D10024;
     padding: 0px 30px 0px 30px;
+  }
+
+  .modal-body > a > button > a {
+    color: #FFF;
+    font-weight: 700;
+  }
+
+  .product-preview > img {
+    margin: auto;
+  }
+
+  .modal-body .slick-dots {
+    position: static;
+    margin-bottom: 30px;
+  }
+
+  @media screen and (min-width: 1000px) {
+    #product-img-container {
+      float: left;
+    }
+
+    #product-detail-container {
+      float: right;
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    #product-img-container {
+      max-width: 100%;
+    }
+
+    #product-detail-container {
+      max-width: 100%;
+    }
+
+    .modal-body .product-details .product-options label {
+      margin-right: 0;
+    }
+
+    .modal-body .product-details .add-to-cart .qty-label {
+      margin-right: 0;
+    }
+
+    .modal-body .product-details .add-to-cart .add-to-cart-btn {
+      padding: 0 20px;
+    }
   }
