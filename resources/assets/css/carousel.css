@@ -74,6 +74,7 @@
 
 .product .product-body .product-name>a {
   font-weight: 700;
+  color: #2B2D42;
 }
 
 .product .product-body .product-name>a:hover, .product .product-body .product-name>a:focus {
@@ -452,7 +453,7 @@
 }
 
 #product-container > .row {
-  display: block;
+  display: block;  
 }
 
 .loading-spinner {
