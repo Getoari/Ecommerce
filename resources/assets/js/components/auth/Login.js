@@ -64,7 +64,7 @@ function Login(props) {
                         </div>}
                         <div className="form-group">
                             <input type="email" required
-                            className="form-control"
+                            className="form-control auth-input"
                             name="email"
                             placeholder="Enter Email"
                             onChange={handleChange}/>
@@ -72,7 +72,7 @@ function Login(props) {
                         </div>
                         <div className="form-group">
                             <input type="password" required
-                            className="form-control"
+                            className="form-control auth-input"
                             name="password"
                             placeholder="Enter Password"
                             onChange={handleChange}/>

@@ -72,7 +72,7 @@
   font-size: 14px;
 }
 
-.product .product-body .product-name>a {
+.product-name>a {
   font-weight: 700;
   color: #2B2D42;
 }
@@ -426,6 +426,10 @@
 /*----------------------------*\
 	Dots
 \*----------------------------*/
+
+.slick-dots {
+  margin-bottom: 30px;
+}
 
 .slick-dots li, .slick-dots li button, .slick-dots li button:before {
   width: 10px;

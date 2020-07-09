@@ -78,7 +78,7 @@ function Register(props) {
 
                         <div className="form-group">
                             <input type="name" required
-                            className="form-control"
+                            className="form-control auth-input"
                             name="name"
                             placeholder="Enter Name"
                             onChange={handleChange}/>
@@ -86,7 +86,7 @@ function Register(props) {
                         </div>
                         <div className="form-group">
                             <input type="email" required
-                            className="form-control"
+                            className="form-control auth-input"
                             name="email"
                             placeholder="Enter Email"
                             onChange={handleChange}/>
@@ -94,7 +94,7 @@ function Register(props) {
                         </div>
                         <div className="form-group">
                             <input type="password" required
-                            className="form-control"
+                            className="form-control auth-input"
                             name="password"
                             placeholder="Enter Password"
                             onChange={handleChange}/>
@@ -102,7 +102,7 @@ function Register(props) {
                         </div>
                         <div className="form-group">
                             <input type="password" required
-                            className="form-control"
+                            className="form-control auth-input"
                             name="password_confirmation"
                             placeholder="Enter Password Again"
                             onChange={handleChange}/>

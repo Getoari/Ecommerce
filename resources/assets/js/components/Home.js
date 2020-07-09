@@ -10,7 +10,7 @@ const Home = () => (
 		<hr/>
 		<Carousel title="Top Selling" id="2" />
 		<hr/>
-        {/* <Widgets /> */}
+        <Widgets />
 
     </div>
 )
