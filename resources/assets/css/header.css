@@ -1,9 +1,4 @@
 
-@font-face{
-  font-family: 'Montserrat', sans-serif;
-  src: url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700");
-}
-
 /*=========================================================
 	     HEADER
 ===========================================================*/
@@ -11,6 +6,26 @@
 /*----------------------------*\
 	Top header
 \*----------------------------*/
+
+#top-header > .container {
+  display: flex !important;
+}
+
+#top-header > .container > .header-links {
+  margin-bottom: 0;
+}
+
+#top-header > .container > .header-links:nth-child(2) {
+  margin-left: auto;
+}
+
+#header > .container > .row {
+  display: flex;
+}
+
+.header-logo .logo > img {
+  padding: 5%;
+}
 
 #top-header {
   padding-top: 10px;
@@ -82,6 +97,7 @@
 }
 
 .header-search form .search-btn {
+  position: absolute;
   height: 40px;
   width: 100px;
   background: #D10024;
@@ -302,6 +318,22 @@
 @media only screen and (max-width: 1201px) {}
 
 @media only screen and (max-width: 991px) {
+
+  #header > .container > .row {
+    flex-wrap: wrap; 
+    flex-direction: column;
+  }
+
+  #header > .container > .row > .col-md-3 {
+    flex: 1;
+    max-width: 100%;
+  }
+
+  #header > .container > .row > .col-md-6 {
+    flex: 1;
+    max-width: 100%;
+  }
+
   #top-header .header-links.pull-left {
     float: none !important;
   }

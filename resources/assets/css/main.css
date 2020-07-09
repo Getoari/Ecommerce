@@ -7,9 +7,9 @@
 \*----------------------------*/
 
 body {
-    font-family: 'Montserrat', sans-serif !important;
-    font-weight: 400 !important;
-    color: #333 !important;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: #333;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -19,7 +19,7 @@ body {
   }
   
   a {
-    color: #2B2D42 !important;
+    color: #2B2D42;
     font-weight: 500;
     -webkit-transition: 0.2s color;
     transition: 0.2s color;

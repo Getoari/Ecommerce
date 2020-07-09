@@ -11,6 +11,10 @@
   padding: 5px;
 }
 
+.modal-body a {
+  color: #2B2D42;
+}
+
 .modal-body .product-details .product-name {
     text-transform: uppercase;
     font-size: 18px;

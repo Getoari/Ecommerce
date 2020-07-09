@@ -18,7 +18,7 @@ class ProductController extends Controller
     {
         $product = Product::with('category', 'stocks')->findOrFail($id);
 
-        if ($product->reviews()) {
+        if ($product->reviews()->exists()) {
             $product['review'] = $product->reviews()->avg('rating');
             $product['num_reviews'] = $product->reviews()->count();
         }
