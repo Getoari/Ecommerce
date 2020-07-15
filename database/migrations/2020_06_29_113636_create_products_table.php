@@ -17,13 +17,12 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
             $table->integer('category_id')->unsigned()->index();
+            $table->integer('deal_id')->unsigned()->nullable()->index();
             $table->string('photo');
             $table->string('brand');
             $table->string('name');
             $table->string('description');
             $table->string('details');
-            $table->double('sale')->nullable();
-            $table->dateTime('sale_expires')->nullable();
             $table->double('price');
             $table->timestamps();  
         });
@@ -32,6 +31,7 @@ class CreateProductsTable extends Migration
             DB::table('products')->insert([     
                 ['user_id' => 1,
                 'category_id' => 1,
+                'deal_id'=>null,
                 'photo' => '[
                     "product01.png",
                     "product03.png",
@@ -42,14 +42,13 @@ class CreateProductsTable extends Migration
                 'Name' => 'HP Probook 4540s',
                 'description' => 'This is the product description!',
                 'details' => 'These are the product detials',
-                'sale' => null,
-                'sale_expires' => null,
                 'price' => 700,
                 'created_at' => now()],
             ]);
             DB::table('products')->insert([     
                 ['user_id' => 1,
                 'category_id' => 1,
+                'deal_id'=>null,
                 'photo' => '[
                     "product01.png",
                     "product03.png",
@@ -60,14 +59,13 @@ class CreateProductsTable extends Migration
                 'Name' => 'Dell XPS',
                 'description' => 'This is the product description!',
                 'details' => 'These are the product detials',
-                'sale' => 0.1,
-                'sale_expires' => '2020-07-31 00:00:00',
                 'price' => 1700,
                 'created_at' => now()],
             ]);
             DB::table('products')->insert([     
                 ['user_id' => 1,
                 'category_id' => 1,
+                'deal_id'=>null,
                 'photo' => '[
                     "product03.png",
                     "product01.png",
@@ -78,14 +76,13 @@ class CreateProductsTable extends Migration
                 'name' => 'Acer Aspire',
                 'description' => 'This is the product description!',
                 'details' => 'These are the product detials',
-                'sale' => 0.3,
-                'sale_expires' => '2020-07-31 00:00:00',
                 'price' => 1100,
                 'created_at' => now()],
             ]);
             DB::table('products')->insert([     
                 ['user_id' => 2,
                 'category_id' => 1,
+                'deal_id'=>null,
                 'photo' => '[
                     "product06.png",
                     "product03.png",
@@ -96,14 +93,13 @@ class CreateProductsTable extends Migration
                 'name' => 'Apple Macbook Pro',
                 'description' => 'This is the product description!',
                 'details' => 'These are the product detials',
-                'sale' => null,
-                'sale_expires' => null,
                 'price' => 2000,
                 'created_at' => now()],
             ]);
             DB::table('products')->insert([     
                 ['user_id' => 2,
                 'category_id' => 1,
+                'deal_id'=>null,
                 'photo' => '[
                     "product08.png",
                     "product03.png",
@@ -114,14 +110,13 @@ class CreateProductsTable extends Migration
                 'name' => 'Apple Macbook Air',
                 'description' => 'This is the product description!',
                 'details' => 'These are the product detials',
-                'sale' => null,
-                'sale_expires' => null,
                 'price' => 1900,
                 'created_at' => now()],
             ]);
             DB::table('products')->insert([     
                 ['user_id' => 2,
                 'category_id' => 1,
+                'deal_id'=>null,
                 'photo' => '[
                     "product06.png",
                     "product01.png",
@@ -132,8 +127,6 @@ class CreateProductsTable extends Migration
                 'name' => 'Dell latitude',
                 'description' => 'This is the product description!',
                 'details' => 'These are the product detials',
-                'sale' => null,
-                'sale_expires' => null,
                 'price' => 500,
                 'created_at' => now()],
             ]);

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Home from './Home'
-import Footer from './Footer'
+import Checkout from './Home/Checkout'
 
 
 const Main = () => (
@@ -10,6 +10,10 @@ const Main = () => (
             <Route exact path='/' component={Home}/>
         </Switch>
     </main>
+
+  
 )
+
+
 
 export default Main
