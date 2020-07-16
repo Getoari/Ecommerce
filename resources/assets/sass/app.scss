@@ -8,6 +8,7 @@
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
 
+
 // Custom CSS
 @import '../css/font-awesome.min.css';
 @import '../css/style.css';
@@ -18,20 +19,11 @@
 @import '../css/carousel.css';
 @import '../css/quick-view.css';
 @import '../css/auth.css';
+@import "../css/HotDeals.css";
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-<<<<<<< Updated upstream
-=======
-
-@import '../css/HotDeals.css';
-
-@import '../css/Footer.css';
-
-@import '../css/Checkout.css';
-
->>>>>>> Stashed changes
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);

@@ -1,9 +1,11 @@
 import React, { useState,useRef, useEffect } from 'react';
-
+import Axios from 'axios'
 
 
 const HotDeals = () => {
 
+	
+	 const [endDate, setEndDate] = useState('00');
 	 const [timerDays, setTimerDays] = useState('00');
 	 const [timerHours, setTimerHours] = useState('00');
 	 const [timerMinutes, setTimerMinutes] = useState('00');
@@ -12,7 +14,7 @@ const HotDeals = () => {
 	 let interval = useRef();
 
 	 const startTimer = ()=>{
-		 const countDownDate = new Date('2020-07-20 00:00:00 ').getTime();
+		 const countDownDate = new Date(endDate).getTime();
 
 		 interval = setInterval(()=>{
 			 const now = new Date().getTime();
@@ -32,12 +34,19 @@ const HotDeals = () => {
 			   setTimerHours(hours);
 			   setTimerMinutes(minutes);
 			   setTimerSeconds(seconds);
+				  
 			 }
 
 		 },1000);
 	 }
 
 	 useEffect(()=>{
+		Axios.get('/api/product/hot-deal').then(result => {
+		
+			setEndDate(result.data.ends)
+		}).catch(error => {
+			console.log(error)
+		})
 		 startTimer();
 		 return ()=>{
 			clearInterval(interval.current);

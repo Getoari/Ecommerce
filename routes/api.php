@@ -22,15 +22,12 @@ Route::post('/login', 'UserController@login');
 Route::get('/logout', 'UserController@logout');
 Route::get('/auth', 'UserController@getAuthenticatedUser');
 
-<<<<<<< Updated upstream
 Route::resource('/products', 'ProductController');
-=======
 Route::get('product/categories/{id}/new', 'ProductCategoriesController@new');
 Route::resource('product/categories', 'ProductCategoriesController');
 Route::get('product/hot-deal', 'ProductDealsController@hotDeals');
 
  
->>>>>>> Stashed changes
 
 Route::get('/product/categories/{id}/top-selling', 'ProductCategoriesController@topSelling');
 Route::get('/product/categories/{id}/new', 'ProductCategoriesController@new');
