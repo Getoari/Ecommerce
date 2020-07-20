@@ -5,7 +5,7 @@ import Axios from 'axios'
 const HotDeals = () => {
 
 	
-	 const [endDate, setEndDate] = useState('00');
+	 const [endDate, setEndDate] = useState('');
 	 const [timerDays, setTimerDays] = useState('00');
 	 const [timerHours, setTimerHours] = useState('00');
 	 const [timerMinutes, setTimerMinutes] = useState('00');
@@ -41,16 +41,20 @@ const HotDeals = () => {
 	 }
 
 	 useEffect(()=>{
-		Axios.get('/api/product/hot-deal').then(result => {
-			console.log(result.data.ends)
-			setEndDate(result.data.ends)
-		}).catch(error => {
-			console.log(error)
-		})
-		 startTimer();
-		 return ()=>{
-			clearInterval(interval.current);
-		 }
+		if(!endDate) {
+			Axios.get('/api/product/hot-deal').then(result => {
+				setEndDate(result.data.ends)
+			}).catch(error => {
+				console.log(error)
+			})
+		}
+
+		if(endDate) {
+			startTimer();
+			return () => {
+				clearInterval(interval.current);
+			}
+		}
 	 })
 
 
