@@ -29,7 +29,7 @@ function Login(props) {
             password: password
         }).then(result => {
             localStorage.setItem('token', result.data.token)
-            props.addUser(result.data.user.name)
+            props.addUser(result.data.user)
         }).catch(error => {
             setError(true)
             setLoading(false)
@@ -59,7 +59,7 @@ function Login(props) {
                         <div className="form-alert">
                             <Alert variant='danger'>
                                 <i className="fa fa-exclamation-triangle"></i>
-                                Invalid credenctials
+                                Invalid credentials!
                             </Alert>
                         </div>}
                         <div className="form-group">

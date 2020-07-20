@@ -5,6 +5,15 @@
 /*----------------------------*\
 	product
 \*----------------------------*/
+/* 
+.slick-slider-fade .slick-track
+{
+   -webkit-transform: none!important;
+   -moz-transform: none!important;
+   -ms-transform: none!important;
+   -o-transform: none!important;
+    transform: none!important;
+} */
 
 .product {
   position: relative;
@@ -461,6 +470,7 @@
 }
 
 .loading-spinner {
+  padding-top: 15px;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;

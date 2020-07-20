@@ -14,7 +14,6 @@ class Authentification extends Component {
 
         this.state = {
             name: '',
-            email: '',
             redirect: ''
         }
 
@@ -23,8 +22,14 @@ class Authentification extends Component {
 
     componentDidMount() {
 
-        if(localStorage.token)
-            this.getAuth(localStorage.token)
+        if(localStorage.getItem('token'))
+            this.getAuth(localStorage.getItem('token'))
+    }
+
+    componentDidUpdate() {
+        if(this.props.user)
+            if(this.props.user.name != this.state.name) 
+                this.setState({name: this.props.user.name})
     }
 
     getAuth(token) {
@@ -32,8 +37,7 @@ class Authentification extends Component {
             headers: { Authorization: `Bearer ${token}`}
         }).then(result => {
             this.setState({
-                name: result.data.user.name,
-                email: result.data.user.email
+                name: result.data.user.name
             })
         }).catch(error => {
             console.log(error)
@@ -42,10 +46,9 @@ class Authentification extends Component {
     }
 
     logout() {
-        localStorage.setItem('token', '')
+        localStorage.removeItem('token')
         this.setState({
-            name: '',
-            email: ''
+            name: ''
         })
         this.props.removeUser()
     }
@@ -74,13 +77,12 @@ class Authentification extends Component {
         }
 
         return (
-            (this.props.user || localStorage.token ?
+            ( (this.props.user != 'guest' && localStorage.getItem('token')) ?
                 <li>
                 <Dropdown>
                     <Dropdown.Toggle variant="toggle" id="dropdown-basic">
                             <i className="fa fa-user-o"></i>
-                            <span>{localStorage.token && this.state.name}{this.props.user && this.props.user}</span>
-                            <i className="fa fa-caret-down" aria-hidden="true"></i>
+                            <span>{this.state.name}</span>
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu onClick={this.handleClick}>
@@ -88,7 +90,7 @@ class Authentification extends Component {
                         <Dropdown.Item id="2" >Track My Order</Dropdown.Item>                          
                         <Dropdown.Divider />
                         <Dropdown.Item id="3" >
-                            <i className="fa fa-sign-out" aria-hidden="true"></i>
+                            <i id="3" className="fa fa-sign-out" aria-hidden="true"></i>
                             Log Out
                         </Dropdown.Item>
                     </Dropdown.Menu>
@@ -105,13 +107,13 @@ class Authentification extends Component {
 
 const mapStateToProps = state => {
     return {
-        user: state.user
+        user: state.user_data
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        removeUser: ( () => dispatch({type: 'USER', value: ''}))
+        removeUser: ( () => dispatch({type: 'USER', value: 'guest'}))
     }
 }
 

@@ -17,15 +17,30 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// JWT Authenficiation
 Route::post('/register', 'UserController@register');
 Route::post('/login', 'UserController@login');
-Route::get('/logout', 'UserController@logout');
 Route::get('/auth', 'UserController@getAuthenticatedUser');
 
-Route::resource('/products', 'ProductController');
+// Product
+Route::get('/products/{id}', 'ProductController@show');
 
+// Product Categories
+Route::get('/product/categories', 'ProductCategoriesController@index');
 Route::get('/product/categories/{id}/top-selling', 'ProductCategoriesController@topSelling');
 Route::get('/product/categories/{id}/new', 'ProductCategoriesController@new');
-Route::resource('/product/categories', 'ProductCategoriesController');
 
+// Product Shopping Cart
+Route::get('/product/cart-list/count', 'ProductShoppingCartController@cartCount');
+Route::get('/product/cart-list/{id}', 'ProductShoppingCartController@show');
+Route::post('/product/cart-list', 'ProductShoppingCartController@store');
+Route::post('/product/cart-list/guest', 'ProductShoppingCartController@guestCart');
+Route::put('/product/cart-list/{id}', 'ProductShoppingCartController@update');
+Route::delete('/product/cart-list/{id}', 'ProductShoppingCartController@destroy');
+
+
+// Product Stocks
+Route::get('/product/stocks/{id}', 'ProductStocksController@show');
+
+// Newsletter
 Route::post('/newsletter', 'NewsLetterController@store');

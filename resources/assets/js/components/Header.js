@@ -1,17 +1,52 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-import Authenfication from './auth/Authentification'
+import Authentfication from './auth/Authentification'
+import CartPreview from './home/CartPreview'
 
 
 class Header extends Component {
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
+
+		this.state = {
+			cartItemCount: 0
+		}
 	}
 
+	componentDidMount() {
+		
+		if(localStorage.getItem('token'))
+			this.getShoppingCartCount()
+		else if (localStorage.getItem('cartList')) 
+			this.props.updateCartCount(JSON.parse(localStorage.getItem('cartList')).length)
+	}
 
 	componentDidUpdate() {
-		console.log('update')
+		if (this.props.cartCount != this.state.cartItemCount)
+			if (localStorage.getItem('token'))
+				this.getShoppingCartCount()
+			else if (localStorage.getItem('cartList'))
+				this.props.updateCartCount(JSON.parse(localStorage.getItem('cartList')).length)
 	}
+
+	getShoppingCartCount() {
+		
+		axios.get('/api/product/cart-list/count', {
+            headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}
+        }).then(result => {
+			
+			let localCartList = JSON.parse(localStorage.getItem('cartList'))
+			let stockList = localCartList.map(list => list[0].stock_id)
+
+			let cartList = [...stockList, ...result.data]
+			let uniqueCartList = [...new Set(cartList)]; 
+
+			this.setState({cartItemCount: uniqueCartList.length})
+			this.props.updateCartCount(uniqueCartList.length)
+      	})
+	}	
 
 	render() {
 	
@@ -27,7 +62,7 @@ class Header extends Component {
 						</ul>
 						<ul className="header-links">
 							<li><a href="#"><i className="fa fa-euro"></i>EURO</a></li>
-							<Authenfication />
+							<Authentfication />
 						</ul>
 					</div>
 				</div>
@@ -42,9 +77,9 @@ class Header extends Component {
 							{/* <!-- LOGO --> */}
 							<div className="col-md-3">
 								<div className="header-logo">
-									<a href="#" className="logo">
+									<Link to="/" className="logo">
 										<img src="./img/logo2.png" alt=""/>
-									</a>
+									</Link>
 								</div>
 							</div>
 							{/* <!-- /LOGO -->*/}
@@ -83,54 +118,12 @@ class Header extends Component {
 	
 									<!-- Cart --> */}
 									<div className="dropdown">
-										<a className="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+										<Link className="dropdown-toggle" to={'/shopping-cart'}>
 											<i className="fa fa-shopping-cart"></i>
 											<span>Your Cart</span>
-											<div className="qty">3</div>
-										</a>
-										<div className="cart-dropdown">
-											<div className="cart-list">
-												<div className="product-widget">
-													<div className="product-img">
-														<img src="./img/product01.png" alt=""/>
-													</div>
-													<div className="product-body">
-														<h3 className="product-name"><a href="#">product name goes here</a></h3>
-														<h4 className="product-price"><span className="qty">1x</span>$980.00</h4>
-													</div>
-													<button className="delete"><i className="fa fa-close"></i></button>
-												</div>
-	
-												<div className="product-widget">
-													<div className="product-img">
-														<img src="./img/product02.png" alt=""/>
-													</div>
-													<div className="product-body">
-														<h3 className="product-name"><a href="#">product name goes here</a></h3>
-														<h4 className="product-price"><span className="qty">3x</span>$980.00</h4>
-													</div>
-													<button className="delete"><i className="fa fa-close"></i></button>
-												</div>
-												<div className="product-widget">
-													<div className="product-img">
-														<img src="./img/product02.png" alt=""/>
-													</div>
-													<div className="product-body">
-														<h3 className="product-name"><a href="#">product name goes here</a></h3>
-														<h4 className="product-price"><span className="qty">3x</span>$980.00</h4>
-													</div>
-													<button className="delete"><i className="fa fa-close"></i></button>
-												</div>
-											</div>
-											<div className="cart-summary">
-												<small>3 Item(s) selected</small>
-												<h5>SUBTOTAL: $2940.00</h5>
-											</div>
-											<div className="cart-btns">
-												<a href="#">View Cart</a>
-												<a href="#">Checkout  <i className="fa fa-arrow-circle-right"></i></a>
-											</div>
-										</div>
+											{ this.props.cartCount > 0 && <div className="qty">{this.props.cartCount}</div>}
+										</Link>
+										<CartPreview />
 									</div>
 									{/* <!-- /Cart -->
 	
@@ -153,9 +146,21 @@ class Header extends Component {
 				{/* <!-- /MAIN HEADER --> */}
 	
 			</header>
-		
 		)
 	}
 } 
 
-export default Header;
+const mapStateToProps = state => {
+    return {
+		cartCount: state.cart_count,
+		userData: state.user_data
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        updateCartCount: ( (cartCount) => dispatch({type: 'CART_COUNT', value: cartCount}))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header)

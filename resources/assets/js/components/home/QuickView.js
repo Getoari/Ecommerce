@@ -3,16 +3,22 @@ import axios from 'axios'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import Slider from 'react-slick'
+import Spinner from 'react-bootstrap/Spinner'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 
 function QucikView(props) {
     
-    const [productId] = useState(props.productId)
+    const [userId, setUserId] = useState('')
+    const [loading, setloading] = useState(true)
+    const [cartLoading, setCartLoading] = useState(false)
+    const [cartButtonInit, setCartButtonInit] = useState(true)
     const [product, setProduct] = useState('')
     const [stocks, setStocks] = useState([])
     const [selectedSize, setSelectedSize] = useState('')
     const [selectedColor, setSelectedColor] = useState('')
+    const [cartCount, setCartCount] = useState('')
     const [quantity, setQuantity] = useState(1)
     const [avaibleQuantity, setAvaibleQuantity] = useState('')
     const [settings] = useState({
@@ -24,24 +30,79 @@ function QucikView(props) {
         slidesToScroll: 1
     })
  
-    const [show, setShow] = useState(false)
-    const handleClose = () => setShow(false)
-    
-    const handleShow = () => {
-        setShow(true)
-        getProduct(productId)
+    const handleClose = () => {
+        props.updateCartCount(cartCount)
+        props.hideQuickView()
+        setProduct('')
+        setStocks([])
+        setSelectedSize('')
+        setSelectedColor('')
+        setAvaibleQuantity('')
     }
 
     function getProduct(id) {
+        setloading(true)
         if(stocks.length == 0) 
             axios.get(`/api/products/${id}`).then((
                 response
             ) => {
                 setProduct(response.data)
                 setStocks([...response.data.stocks])
-            }).catch(function (error) {
-                console.log(error)
+                setloading(false)
             })
+    }
+
+    function handleClick() {
+
+        setCartLoading(true)
+        setCartButtonInit(false)
+
+        let stock = stocks.filter(item => (item.size == selectedSize && item.color == selectedColor))
+        stock = stock[0]
+
+        if(userId) {
+            axios.post('/api/product/cart-list', {
+                stockId: stock.id,
+                quantity: quantity
+            }, {
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}
+            }).then(response => {
+                setCartCount(response.data)
+                setCartLoading(false)
+            })
+
+        } else {
+            let cartItem = [
+                {
+                    'stock_id': stock.id,
+                    'quantity': quantity
+                }
+            ]
+            
+            let items = []
+            
+            if(localStorage.getItem('cartList')) {
+                items = JSON.parse(localStorage.getItem('cartList'))
+
+                items.map(item => {
+                    if (item[0].stock_id == stock.id) {
+                        if (avaibleQuantity > (item[0].quantity + quantity))
+                            item[0].quantity += quantity
+                        else
+                            item[0].quantity = avaibleQuantity
+                            
+                        cartItem = '';
+                    } 
+                })
+            }
+            
+            if(cartItem)
+                items.unshift(cartItem) 
+            
+            setCartCount(items.length)
+            localStorage.setItem('cartList', JSON.stringify(items))
+            setCartLoading(false)
+        }
     }
 
     function handleChange(e) {
@@ -56,7 +117,6 @@ function QucikView(props) {
                     setAvaibleQuantity(stock.quantity)
                     found = true
                 }
-
                 if (stock.color == value) {
                     setSelectedColor(value)
                     setAvaibleQuantity(stock.quantity)
@@ -66,29 +126,58 @@ function QucikView(props) {
         }
 
         if (e.target.className === 'qty-up') {
-            setQuantity(quantity + 1)
+            if( quantity < avaibleQuantity)
+                setQuantity(parseInt(quantity) + 1)
         } else if(e.target.className === 'qty-down') {
-            setQuantity(quantity - 1)
+            if( quantity > 1)
+                setQuantity(parseInt(quantity) - 1)
         }
 
         if(e.target.type == 'number') {
-            setQuantity(value)
+            if (avaibleQuantity >= value )
+                setQuantity(value)
+            else if (value < 1)
+                setQuantity(1)
         }
     }
+
+    function getAuth(token) {
+        axios.get('/api/auth', {
+            headers: { Authorization: `Bearer ${token}`}
+        }).then(result => {
+            setUserId(result.data.user.id)
+        })
+    }
+
+    function handleMouseLeave() {
+        setCartButtonInit(true)
+    }
+
+    useEffect(() => {
+        
+        if(props.productId > 0 ) {
+            getProduct(props.productId)
+
+            if(localStorage.getItem('token'))
+                getAuth(localStorage.getItem('token'))
+        }
+        
+
+    }, [props.productId])
 
 
     return (
         <React.Fragment>
-        <Button className="qucik-view" onClick={handleShow} bsPrefix="q"><i className="fa fa-eye"></i><span className="tooltipp">quick view</span></Button>
-        <Modal size="lg" show={show} onHide={handleClose}>
-            
+        <Modal size="lg" show={props.showModal} onHide={handleClose}>
+                
                 <Modal.Header closeButton>
                     <Modal.Title>
                         { product && product.name}
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                { product && <React.Fragment>
+                {loading ? <div className="spinner-container"><Spinner animation="border" /></div> :
+                product && <React.Fragment>
                         <div>
                             <div id="product-img-container" className="col-md-6">
                             {/* <!-- Product thumb imgs --> */}
@@ -164,7 +253,31 @@ function QucikView(props) {
                                                 <span className="qty-down" onClick={handleChange} >-</span>
                                             </div>
                                         </div>
-                                        <button className="add-to-cart-btn" disabled={!avaibleQuantity}><i className="fa fa-shopping-cart"></i> add to cart</button>
+                                        <button className="add-to-cart-btn" onMouseLeave={handleMouseLeave} onClick={handleClick} disabled={!avaibleQuantity}>
+                                            { cartButtonInit ?
+                                            <React.Fragment>
+                                            <i className="fa fa-shopping-cart"></i>
+                                            <span>add to cart</span>
+                                            </React.Fragment>   
+                                            :
+                                            cartLoading ?
+                                                <React.Fragment>
+                                                    <i><Spinner
+                                                        as="span"
+                                                        animation="grow"
+                                                        size="sm"
+                                                        role="status"
+                                                        aria-hidden="true"
+                                                    /></i>
+                                                    <span>Adding...</span>
+                                                </React.Fragment>
+                                                :
+                                                <React.Fragment>
+                                                    <i className="fa fa-check"></i>
+                                                    <span>Added</span>
+                                                </React.Fragment>
+                                            }
+                                        </button>
                                         <br/><sub>{(avaibleQuantity ? 'Only ' : 'There are ')} {avaibleQuantity} item(s) available!</sub>   
                                     </div>
 
@@ -190,7 +303,7 @@ function QucikView(props) {
                                 {/* <!-- /Product details --> */}
                                 </div>
                             </div>
-                            <Link to={`/products/${productId}`}>
+                            <Link to={`/products/${props.productId}`}>
                                 <Button bsPrefix="qv">
                                         <span>View More</span>
                                 </Button>
@@ -202,4 +315,18 @@ function QucikView(props) {
     )
 }
 
-export default QucikView
+const mapStateToProps = state => {
+    return {
+        productId: state.product_id,
+        showModal: state.show_modal
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        updateCartCount: ( (count) => dispatch({type: 'CART_COUNT', value: count})),
+        hideQuickView: ( () => dispatch({type: 'MODAL_CONTROL', value: false}))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(QucikView)

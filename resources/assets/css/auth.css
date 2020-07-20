@@ -19,9 +19,16 @@
 }
 
 .form-alert .alert-danger .fa-exclamation-triangle {
+    font-size: 18px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    width: 46px;
+    height: 100%;
+    text-align: center;
+    line-height: 44px;
     background: transparent;
     border-right: 1px solid #f5c6cb; 
-    height: 100%;
 }
 
 .modal-body > .auth {
