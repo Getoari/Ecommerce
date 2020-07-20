@@ -82335,16 +82335,15 @@ var Main = function Main() {
 
 
 var Home = function Home() {
-    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
-        null,
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__home_QuickView__["a" /* default */], null),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__home_Carousel__["a" /* default */], { title: 'New Products', id: '1' }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__home_HotDeals__["a" /* default */], null),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__home_Carousel__["a" /* default */], { title: 'Top Selling', id: '1' }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', null),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__home_Widgets__["a" /* default */], null)
-    );
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            null,
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__home_QuickView__["a" /* default */], null),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__home_Carousel__["a" /* default */], { title: 'New Products', id: '1' }),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__home_HotDeals__["a" /* default */], null),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__home_Carousel__["a" /* default */], { title: 'Top Selling', id: '1' }),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__home_Widgets__["a" /* default */], null)
+      );
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (Home);
@@ -88544,81 +88543,187 @@ var Checkout = function Checkout() {
 
 var Nav = function Nav() {
 	return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-		"header",
+		__WEBPACK_IMPORTED_MODULE_0_react___default.a.Fragment,
 		null,
 		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-			"nav",
-			{ id: "navigation" },
+			"header",
+			null,
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				"nav",
+				{ id: "navigation" },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					"div",
+					{ "class": "container" },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						"div",
+						{ id: "responsive-nav" },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							"ul",
+							{ "class": "main-nav nav nav-navbar" },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								"li",
+								{ "class": "active" },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									"a",
+									{ href: "#" },
+									"Home"
+								)
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								"li",
+								null,
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									"a",
+									{ href: "#" },
+									"Hot Deals"
+								)
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								"li",
+								null,
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									"a",
+									{ href: "#" },
+									"Categories"
+								)
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								"li",
+								null,
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									"a",
+									{ href: "#" },
+									"Laptops"
+								)
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								"li",
+								null,
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									"a",
+									{ href: "#" },
+									"Smartphones"
+								)
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								"li",
+								null,
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									"a",
+									{ href: "#" },
+									"Cameras"
+								)
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								"li",
+								null,
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									"a",
+									{ href: "#" },
+									"Accessories"
+								)
+							)
+						)
+					)
+				)
+			)
+		),
+		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			"div",
+			{ "class": "section" },
 			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				"div",
 				{ "class": "container" },
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					"div",
-					{ id: "responsive-nav" },
+					{ "class": "row" },
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						"ul",
-						{ "class": "main-nav nav nav-navbar" },
+						"div",
+						{ "class": "col-md-4 col-xs-6" },
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							"li",
-							{ "class": "active" },
+							"div",
+							{ "class": "shop" },
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								"a",
-								{ href: "#" },
-								"Home"
+								"div",
+								{ "class": "shop-img" },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: "./img/shop01.png", alt: "" })
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								"div",
+								{ "class": "shop-body" },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									"h3",
+									null,
+									"Laptop",
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null),
+									"Collection"
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									"a",
+									{ href: "#", "class": "cta-btn" },
+									"Shop now ",
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { "class": "fa fa-arrow-circle-right" })
+								)
 							)
-						),
+						)
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						"div",
+						{ "class": "col-md-4 col-xs-6" },
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							"li",
-							null,
+							"div",
+							{ "class": "shop" },
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								"a",
-								{ href: "#" },
-								"Hot Deals"
+								"div",
+								{ "class": "shop-img" },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: "./img/shop03.png", alt: "" })
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								"div",
+								{ "class": "shop-body" },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									"h3",
+									null,
+									"Accessories",
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null),
+									"Collection"
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									"a",
+									{ href: "#", "class": "cta-btn" },
+									"Shop now ",
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { "class": "fa fa-arrow-circle-right" })
+								)
 							)
-						),
+						)
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						"div",
+						{ "class": "col-md-4 col-xs-6" },
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							"li",
-							null,
+							"div",
+							{ "class": "shop" },
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								"a",
-								{ href: "#" },
-								"Categories"
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							"li",
-							null,
+								"div",
+								{ "class": "shop-img" },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: "./img/shop02.png", alt: "" })
+							),
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								"a",
-								{ href: "#" },
-								"Laptops"
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							"li",
-							null,
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								"a",
-								{ href: "#" },
-								"Smartphones"
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							"li",
-							null,
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								"a",
-								{ href: "#" },
-								"Cameras"
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							"li",
-							null,
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								"a",
-								{ href: "#" },
-								"Accessories"
+								"div",
+								{ "class": "shop-body" },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									"h3",
+									null,
+									"Cameras",
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null),
+									"Collection"
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									"a",
+									{ href: "#", "class": "cta-btn" },
+									"Shop now ",
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { "class": "fa fa-arrow-circle-right" })
+								)
 							)
 						)
 					)

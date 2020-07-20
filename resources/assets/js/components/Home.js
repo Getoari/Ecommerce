@@ -11,13 +11,12 @@ import QuickView from './home/QuickView'
 const Home = () => (
     <div>
 		<QuickView />
-       
         <Carousel title="New Products" id="1" />
-        <HotDeals />
-		<Carousel title="Top Selling" id="1" />
-		<hr/>
-        <Widgets />     
+        
+		<HotDeals />
 
+		<Carousel title="Top Selling" id="1" />
+        <Widgets />    
     </div>
 )
 
