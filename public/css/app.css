@@ -318,117 +318,7 @@
     opacity: .75;
     color: black;
 }
-.auth-primary {
-    border: 0 !important;
-    background-color: transparent;
-    color: #FFF;
-    font-weight: 500;
-    padding: 0;
-    -webkit-transition: 0.2s color;
-    transition: 0.2s color;
-}
-
-.auth-title {
-    margin-left: 1em;
-    width: 100%;
-    text-align: center;
-}
-
-.form-alert .alert-danger {
-    padding-left: 55px;
-    height: auto;
-}
-
-.form-alert .alert-danger .fa-exclamation-triangle {
-    background: transparent;
-    border-right: 1px solid #f5c6cb; 
-    height: 100%;
-}
-
-.modal-body > .auth {
-    padding: 5% 12%;
-}
-
-.modal-body .auth .form-group {
-    position: relative;
-    border: 1px solid #e6e6e6;
-}
-
-.modal-body .auth i {
-    font-size: 18px;
-    left: 0px;
-    top: 0px;
-    position: absolute;
-    height: 46px;
-    width: 46px;
-    color: #000;
-    background: #FFF;
-    text-align: center;
-    line-height: 44px;
-    -webkit-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
-    pointer-events: none;
-    border-right: 1px solid #e6e6e6;
-}
-
-.modal-body .auth input[type=name], input[type=email], input[type=password] {
-    font-size: 14px;
-    font-weight: 400;
-    padding: 10px 15px 10px 55px;
-    position: relative;
-    width: 100%;
-    height: 46px;
-    color: #000;
-    border: none;
-    background: #FFF;
-    -webkit-transition: color 0.3s ease-out;
-    transition: color 0.3s ease-out;
-}
-
-.modal-body .auth button[type=submit] {
-    margin-top: 15px;
-    width: 100%;
-    text-align: center;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 12px 0;
-    letter-spacing: 0;
-    color: #fff;
-    text-shadow: none;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    position: relative;
-    margin-bottom: 20px;
-  }
-
-.auth-primary:hover {
-    color: #D10024 !important;
-    text-decoration: none !important;
-    outline: none;
-}
-
-.btn-toggle {
-    padding: 0 !important;
-}
-
-.btn-toggle:focus {
-    outline: 0;
-    -webkit-box-shadow: none !important;
-            box-shadow: none !important;
-}
-
-.btn-toggle > span{
-    color: #FFF;
-    font-size: 12px;
-}
-
-.dropdown-menu > a {
-    color: #2B2D42 !important;
-}
-.dropdown-menu > a:active {
-    background-color: #2B2D42 !important;
-}/*!
+/*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
@@ -2105,7 +1995,7 @@ body {
   font-size: 14px;
 }
 
-.product .product-body .product-name>a {
+.product-name>a {
   font-weight: 700;
   color: #2B2D42;
 }
@@ -2453,6 +2343,10 @@ body {
 /*----------------------------*\
 	Dots
 \*----------------------------*/
+
+.slick-dots {
+  margin-bottom: 30px;
+}
 
 .slick-dots li, .slick-dots li button, .slick-dots li button:before {
   width: 10px;
@@ -2976,6 +2870,172 @@ body {
     .modal-body .product-details .add-to-cart .add-to-cart-btn {
       padding: 0 20px;
     }
+  }.auth-primary {
+    border: 0 !important;
+    background-color: transparent;
+    color: #FFF;
+    font-weight: 500;
+    padding: 0;
+    -webkit-transition: 0.2s color;
+    transition: 0.2s color;
+}
+
+.auth-title {
+    margin-left: 1em;
+    width: 100%;
+    text-align: center;
+}
+
+.form-alert .alert-danger {
+    padding-left: 55px;
+    height: auto;
+}
+
+.form-alert .alert-danger .fa-exclamation-triangle {
+    background: transparent;
+    border-right: 1px solid #f5c6cb; 
+    height: 100%;
+}
+
+.modal-body > .auth {
+    padding: 5% 12%;
+}
+
+.modal-body > .auth > .form-group {
+    position: relative;
+    border: 1px solid #e6e6e6;
+}
+
+.modal-body > .auth > .form-group > i {
+    font-size: 18px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    height: 46px;
+    width: 46px;
+    color: #000;
+    background: #FFF;
+    text-align: center;
+    line-height: 44px;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    pointer-events: none;
+    border-right: 1px solid #e6e6e6;
+}
+
+.modal-body > .auth > .form-group > .auth-input {
+    font-size: 14px;
+    font-weight: 400;
+    padding: 10px 15px 10px 55px;
+    position: relative;
+    width: 100%;
+    height: 46px;
+    color: #000;
+    border: none;
+    background: #FFF;
+    -webkit-transition: color 0.3s ease-out;
+    transition: color 0.3s ease-out;
+}
+
+.modal-body > .auth > button[type=submit] {
+    margin-top: 15px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 12px 0;
+    letter-spacing: 0;
+    color: #fff;
+    text-shadow: none;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+.auth-primary:hover {
+    color: #D10024 !important;
+    text-decoration: none !important;
+    outline: none;
+}
+
+.btn-toggle {
+    padding: 0 !important;
+}
+
+.btn-toggle:focus {
+    outline: 0;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+}
+
+.btn-toggle > span{
+    color: #FFF;
+    font-size: 12px;
+}
+
+.dropdown-menu > a {
+    color: #2B2D42 !important;
+}
+.dropdown-menu > a:active {
+    background-color: #2B2D42 !important;
+}#hot-deal.section {
+    padding: 60px 0px;
+    margin: 30px 0px;
+    background-color: #E4E7ED;
+    background-image: url('/img/hotdeal.png');
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .hot-deal {
+    text-align: center;
+  }
+  
+  .hot-deal .hot-deal-countdown {
+    margin-bottom: 30px;
+  }
+  
+  .hot-deal .hot-deal-countdown>li {
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background: #D10024e6;
+    text-align: center;
+    border-radius: 50%;
+    margin: 0px 5px;
+  }
+  
+  .hot-deal .hot-deal-countdown>li>div {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  
+  .hot-deal .hot-deal-countdown>li>div h3 {
+    color: #FFF;
+    margin-bottom: 0px;
+  }
+  
+  .hot-deal .hot-deal-countdown>li>div span {
+    display: block;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #FFF;
+  }
+  
+  .hot-deal p {
+    text-transform: uppercase;
+    font-size: 24px;
+  }
+  
+  .hot-deal .cta-btn {
+    margin-top: 15px;
   }/*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors

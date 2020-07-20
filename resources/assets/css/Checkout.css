@@ -1,0 +1,71 @@
+.billing-details {
+    margin-bottom: 30px;
+  }
+  
+  .shiping-details {
+    margin-bottom: 30px;
+  }
+  
+  .order-details {
+    position: relative;
+    padding: 0px 30px 30px;
+    border-right: 1px solid #E4E7ED;
+    border-left: 1px solid #E4E7ED;
+    border-bottom: 1px solid #E4E7ED;
+  }
+  
+  .order-details:before {
+    content: "";
+    position: absolute;
+    left: -1px;
+    right: -1px;
+    top: -15px;
+    height: 30px;
+    border-top: 1px solid #E4E7ED;
+    border-left: 1px solid #E4E7ED;
+    border-right: 1px solid #E4E7ED;
+  }
+  
+  .order-summary {
+    margin: 15px 0px;
+  }
+  
+  .order-summary .order-col {
+    display: table;
+    width: 100%;
+  }
+  
+  .order-summary .order-col:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  
+  .order-summary .order-col>div {
+    display: table-cell;
+    padding: 10px 0px;
+  }
+  
+  .order-summary .order-col>div:first-child {
+    width: calc(100% - 150px);
+  }
+  
+  .order-summary .order-col>div:last-child {
+    width: 150px;
+    text-align: right;
+  }
+  
+  .order-summary .order-col .order-total {
+    font-size: 24px;
+    color: #D10024;
+  }
+  
+  .order-details .payment-method {
+    margin: 30px 0px;
+  }
+  
+  .order-details .order-submit {
+    display: block;
+    margin-top: 30px;
+    
+  }

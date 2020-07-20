@@ -24,6 +24,7 @@ Route::get('/auth', 'UserController@getAuthenticatedUser');
 
 // Product
 Route::get('/products/{id}', 'ProductController@show');
+Route::get('/product/hot-deal', 'ProductDealsController@hotDeals');
 
 // Product Categories
 Route::get('/product/categories', 'ProductCategoriesController@index');
@@ -37,7 +38,6 @@ Route::post('/product/cart-list', 'ProductShoppingCartController@store');
 Route::post('/product/cart-list/guest', 'ProductShoppingCartController@guestCart');
 Route::put('/product/cart-list/{id}', 'ProductShoppingCartController@update');
 Route::delete('/product/cart-list/{id}', 'ProductShoppingCartController@destroy');
-
 
 // Product Stocks
 Route::get('/product/stocks/{id}', 'ProductStocksController@show');

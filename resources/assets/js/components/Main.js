@@ -12,6 +12,10 @@ const Main = () => (
             <Route exact path='/shopping-cart' component={props => <ShoppingCart {...props}/>} />
         </Switch>
     </main>
+
+  
 )
+
+
 
 export default Main
