@@ -1,16 +1,15 @@
 import React from 'react'
 import HotDeals from './home/HotDeals'
-import Checkout from './home/Checkout'
 
-
+import Collections from './home/Collections'
 import Carousel from './home/Carousel'
 import Widgets from './home/Widgets'
 import QuickView from './home/QuickView'
 
-
 const Home = () => (
     <div>
 		<QuickView />
+		<Collections />
         <Carousel title="New Products" id="1" />
         
 		<HotDeals />

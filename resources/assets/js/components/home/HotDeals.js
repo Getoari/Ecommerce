@@ -42,7 +42,7 @@ const HotDeals = () => {
 
 	 useEffect(()=>{
 		Axios.get('/api/product/hot-deal').then(result => {
-		
+			console.log(result.data.ends)
 			setEndDate(result.data.ends)
 		}).catch(error => {
 			console.log(error)

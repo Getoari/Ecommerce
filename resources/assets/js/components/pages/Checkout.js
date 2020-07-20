@@ -6,10 +6,8 @@ const Checkout = () => {
 
 
 <div>
-
-
-		<meta charset="utf-8"/>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>g
+		<meta charSet="utf-8"/>
+		<meta httpEquiv="X-UA-Compatible" content="IE=edge"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		
 
@@ -86,7 +84,7 @@ const Checkout = () => {
 							<div className="form-group">
 								<div className="input-checkbox">
 									<input type="checkbox" id="create-account"/>
-									<label for="create-account">
+									<label htmlFor="create-account">
 										<span></span>
 										Create Account?
 									</label>
@@ -104,7 +102,7 @@ const Checkout = () => {
 							</div>
 							<div className="input-checkbox">
 								<input type="checkbox" id="shiping-address"/>
-								<label for="shiping-address">
+								<label htmlFor="shiping-address">
 									<span></span>
 									Ship to a diffrent address?
 								</label>
@@ -175,7 +173,7 @@ const Checkout = () => {
 						<div className="payment-method">
 							<div className="input-radio">
 								<input type="radio" name="payment" id="payment-1"/>
-								<label for="payment-1">
+								<label htmlFor="payment-1">
 									<span></span>
 									Direct Bank Transfer
 								</label>
@@ -185,7 +183,7 @@ const Checkout = () => {
 							</div>
 							<div className="input-radio">
 								<input type="radio" name="payment" id="payment-2"/>
-								<label for="payment-2">
+								<label htmlFor="payment-2">
 									<span></span>
 									Cheque Payment
 								</label>
@@ -195,7 +193,7 @@ const Checkout = () => {
 							</div>
 							<div className="input-radio">
 								<input type="radio" name="payment" id="payment-3"/>
-								<label for="payment-3">
+								<label htmlFor="payment-3">
 									<span></span>
 									Paypal System
 								</label>
@@ -206,7 +204,7 @@ const Checkout = () => {
 						</div>
 						<div className="input-checkbox">
 							<input type="checkbox" id="terms"/>
-							<label for="terms">
+							<label htmlFor="terms">
 								<span></span>
 								I've read and accept the <a href="#">terms & conditions</a>
 							</label>
