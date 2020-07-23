@@ -193,8 +193,9 @@ class ShoppingCart extends Component {
 		let id = parseInt(e.target.id)
 
 		if(this.state.userId) {
-			axios.delete(`/api/product/cart-list/${id}`)
-			.then(response => {
+			axios.delete(`/api/product/cart-list/${id}`, {
+				headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}
+			}).then(response => {
 				if(response.status === 200) {
 					let list = this.state.selectedList
 					list = list.filter(item => item !== id)

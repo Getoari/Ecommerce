@@ -108,10 +108,14 @@ class ProductShoppingCartController extends Controller
 
     public function destroy($id) {
 
-        $cartItem = ShoppingCart::findOrFail($id);
+        $user = JWTAuth::parseToken()->authenticate();
 
-        if($cartItem)
-            $cartItem->delete();
+        if($user) {
+            $cartItem = $user->cartItems()->findOrFail($id);
+    
+            if($cartItem)
+                $cartItem->delete();
+        }
 
         return $cartItem;
     }

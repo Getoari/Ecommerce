@@ -43,4 +43,8 @@ class User extends Authenticatable implements JWTSubject
     public function cartItems() {
         return $this->hasMany('App\ShoppingCart');
     }
+
+    public function wishlistProducts() {
+        return $this->hasMany('App\Wishlist');
+    }
 }

@@ -1,0 +1,84 @@
+#wishlist {
+    width: 100%;
+}
+
+#wishlist > thead > tr > th {
+    padding-bottom: 25px;
+}
+#wishlist > tbody > tr  {
+    border-top: 1px solid #E4E7ED;
+}
+
+#wishlist .product-name {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.product-column .add-to-cart button {
+    position: relative;
+    border: 2px solid transparent;
+    height: 40px;
+    padding: 0 30px;
+    background-color: #ef233c;
+    color: #FFF;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 40px;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+}
+
+.product-column .add-to-cart .add-to-cart-btn>i {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    line-height: 38px;
+    color: #D10024;
+}
+
+.delete-wishlist-icon > i {
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.pagination-container {
+    width: 100%;
+    display: flex;
+}
+
+.pagination-container .pagination {
+    margin: 0 auto;
+    padding-top: 20px;
+    border-radius: 0;
+}
+
+/* .pagination-container .pagination .page-item {
+    padding: 5px
+} */
+
+.pagination-container .pagination .page-item .page-link {
+    color: #2B2D42;
+    padding: 10px 15px;
+    font-weight: 500;
+    -webkit-transition: 0.2s color;
+    transition: 0.2s color;
+}
+
+.pagination-container .pagination .page-item.active .page-link {
+    z-index: 3;
+    background-color: #D10024;
+    border-color: #D10024;
+    color: #FFF;
+    font-weight: 500;
+    cursor: default;
+}
+
+.pagination-container .pagination .page-item.active .page-link:hover {
+    color: #FFF !important;
+}
+
+.pagination-container .pagination .page-item.active .page-link:focus {
+    color: #FFF !important;
+}

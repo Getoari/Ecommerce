@@ -11,24 +11,32 @@ class Header extends Component {
 		super(props)
 
 		this.state = {
-			cartItemCount: 0
+			cartItemCount: 0,
+			wishlistCount: 0
 		}
 	}
 
 	componentDidMount() {
 		
-		if(localStorage.getItem('token'))
+		if(localStorage.getItem('token')) {
 			this.getShoppingCartCount()
-		else if (localStorage.getItem('cartList')) 
+			this.getWishlistCount()
+		} else if (localStorage.getItem('cartList')) 
 			this.props.updateCartCount(JSON.parse(localStorage.getItem('cartList')).length)
 	}
 
 	componentDidUpdate() {
-		if (this.props.cartCount != this.state.cartItemCount)
-			if (localStorage.getItem('token'))
+		if (this.props.cartCount !== this.state.cartItemCount)
+			if (localStorage.getItem('token')) 
 				this.getShoppingCartCount()
 			else if (localStorage.getItem('cartList'))
 				this.props.updateCartCount(JSON.parse(localStorage.getItem('cartList')).length)
+
+		if (this.props.wishlistCount !== this.state.wishlistCount)
+			if (localStorage.getItem('token')) {
+				this.getWishlistCount()
+			}
+				
 	}
 
 	getShoppingCartCount() {
@@ -45,6 +53,16 @@ class Header extends Component {
 
 			this.setState({cartItemCount: uniqueCartList.length})
 			this.props.updateCartCount(uniqueCartList.length)
+      	})
+	}
+
+	getWishlistCount() {
+		
+		axios.get('/api/product/wishlist/count', {
+            headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}
+        }).then(result => {
+			this.setState({wishlistCount: result.data})
+			this.props.updateWishlistCount(result.data)
       	})
 	}	
 
@@ -78,7 +96,7 @@ class Header extends Component {
 							<div className="col-md-3">
 								<div className="header-logo">
 									<Link to="/" className="logo">
-										<img src="./img/logo2.png" alt=""/>
+										<img src="./img/logo4.png" alt=""/>
 									</Link>
 								</div>
 							</div>
@@ -106,13 +124,12 @@ class Header extends Component {
 							<div className="col-md-3">
 								<div className="header-ctn">
 									{/* <!-- Wishlist --> */}
-									<div>
-										<a href="#">
+									<div>	
+										<Link to="/wishlist">
 											<i className="fa fa-heart-o"></i>
 											<span>Your Wishlist</span>
-											<div className="qty">2</div>
-											
-										</a>
+											{ this.props.wishlistCount > 0 && <div className="qty">{this.props.wishlistCount}</div>}
+										</Link>
 									</div>
 									{/* <!-- /Wishlist -->
 	
@@ -153,13 +170,15 @@ class Header extends Component {
 const mapStateToProps = state => {
     return {
 		cartCount: state.cart_count,
+		wishlistCount: state.wishlist_count,
 		userData: state.user_data
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        updateCartCount: ( (cartCount) => dispatch({type: 'CART_COUNT', value: cartCount}))
+        updateCartCount: ( (count) => dispatch({type: 'CART_COUNT', value: count})),
+        updateWishlistCount: ( (count) => dispatch({type: 'WISHLIST_COUNT', value: count}))
     }
 }
 

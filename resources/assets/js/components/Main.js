@@ -1,10 +1,10 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 
 import Home from './Home'
 import ShoppingCart from './pages/ShoppingCart'
 import Checkout from './pages/Checkout'
-
+import Wishlist from './pages/Wishlist'
 
 const Main = () => (
     <main>
@@ -12,6 +12,7 @@ const Main = () => (
             <Route exact path='/' component={Home}/>
             <Route exact path='/shopping-cart' component={props => <ShoppingCart {...props}/>} />
             <Route exact path='/checkout' component={Checkout} />
+            <Route exact path='/wishlist' component={props => <Wishlist {...props}/>} />
         </Switch>
     </main>
 )

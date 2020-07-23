@@ -4,19 +4,23 @@ import HotDeals from './home/HotDeals'
 import Collections from './home/Collections'
 import Carousel from './home/Carousel'
 import Widgets from './home/Widgets'
-import QuickView from './home/QuickView'
+import ToastMessage from './home/ToastMessage'
 
-const Home = () => (
-    <div>
-		<QuickView />
-		<Collections />
-        <Carousel title="New Products" id="1" />
-        
-		<HotDeals />
+function Home(props) {
 
-		<Carousel title="Top Selling" id="1" />
-        <Widgets />    
-    </div>
-)
+    return (
+        <div>
+            <Collections />
+            <ToastMessage />
+            <Carousel title="New Products" id="1" />
+            
+            {/* <HotDeals /> */}
+    
+            {/* <Carousel title="Top Selling" id="1" />
+            <Widgets />     */}
+        </div>
+    )
+} 
+
 
 export default Home

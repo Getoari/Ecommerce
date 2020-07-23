@@ -18,9 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 // JWT Authenficiation
+Route::get('/auth', 'UserController@getAuthenticatedUser');
 Route::post('/register', 'UserController@register');
 Route::post('/login', 'UserController@login');
-Route::get('/auth', 'UserController@getAuthenticatedUser');
 
 // Product
 Route::get('/products/{id}', 'ProductController@show');
@@ -38,6 +38,12 @@ Route::post('/product/cart-list', 'ProductShoppingCartController@store');
 Route::post('/product/cart-list/guest', 'ProductShoppingCartController@guestCart');
 Route::put('/product/cart-list/{id}', 'ProductShoppingCartController@update');
 Route::delete('/product/cart-list/{id}', 'ProductShoppingCartController@destroy');
+
+//Product Wishlist
+Route::get('/product/wishlist/count', 'ProductWishlistController@count');
+Route::get('/product/wishlist', 'ProductWishlistController@index');
+Route::post('/product/wishlist', 'ProductWishlistController@store');
+Route::delete('/product/wishlist/{id}', 'ProductWishlistController@destroy');
 
 // Product Stocks
 Route::get('/product/stocks/{id}', 'ProductStocksController@show');

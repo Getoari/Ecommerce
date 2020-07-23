@@ -14,6 +14,7 @@ function QucikView(props) {
     const [loading, setloading] = useState(true)
     const [cartLoading, setCartLoading] = useState(false)
     const [cartButtonInit, setCartButtonInit] = useState(true)
+    const [productId, setProductId] = useState('')
     const [product, setProduct] = useState('')
     const [stocks, setStocks] = useState([])
     const [selectedSize, setSelectedSize] = useState('')
@@ -33,23 +34,18 @@ function QucikView(props) {
     const handleClose = () => {
         props.updateCartCount(cartCount)
         props.hideQuickView()
-        setProduct('')
-        setStocks([])
-        setSelectedSize('')
-        setSelectedColor('')
-        setAvaibleQuantity('')
     }
 
     function getProduct(id) {
         setloading(true)
-        if(stocks.length == 0) 
-            axios.get(`/api/products/${id}`).then((
-                response
-            ) => {
-                setProduct(response.data)
-                setStocks([...response.data.stocks])
-                setloading(false)
-            })
+        axios.get(`/api/products/${id}`).then((
+            response
+        ) => {
+            setProductId(id)
+            setProduct(response.data)
+            setStocks([...response.data.stocks])
+            setloading(false)
+        })
     }
 
     function handleClick() {
@@ -60,7 +56,7 @@ function QucikView(props) {
         let stock = stocks.filter(item => (item.size == selectedSize && item.color == selectedColor))
         stock = stock[0]
 
-        if(userId) {
+        if(localStorage.getItem('token')) {
             axios.post('/api/product/cart-list', {
                 stockId: stock.id,
                 quantity: quantity
@@ -141,25 +137,44 @@ function QucikView(props) {
         }
     }
 
-    function getAuth(token) {
-        axios.get('/api/auth', {
-            headers: { Authorization: `Bearer ${token}`}
-        }).then(result => {
-            setUserId(result.data.user.id)
-        })
-    }
-
     function handleMouseLeave() {
         setCartButtonInit(true)
     }
 
-    useEffect(() => {
-        
-        if(props.productId > 0 ) {
-            getProduct(props.productId)
+    function handleWishlist(e) {
 
-            if(localStorage.getItem('token'))
-                getAuth(localStorage.getItem('token'))
+        e.preventDefault()
+
+		if(!localStorage.getItem('token')) {
+			this.props.showLogin()
+		} else {
+			axios.post('/api/product/wishlist', {
+				productId: e.target.id
+			}, {
+				headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}
+			}).then(response => {
+				if(response.status === 200) {
+					props.updateWishlistCount(response.data)
+					props.showToast('Added to wishlist!')
+				} 
+			}).catch(error => {
+				props.showToast('Product is already in the wishlist!')
+			})
+		}
+	}
+
+    useEffect(() => {
+
+        if(props.productId > 0 ) {
+            if(productId != props.productId) {
+                setProduct('')
+                setStocks([])
+                setSelectedSize('')
+                setSelectedColor('')
+                setAvaibleQuantity('')
+            }
+            
+            getProduct(props.productId)
         }
         
 
@@ -282,7 +297,7 @@ function QucikView(props) {
                                     </div>
 
                                     <ul className="product-btns">
-                                        <li><a href="#"><i className="fa fa-heart-o"></i> add to wishlist</a></li>
+                                        <li><a id={product.id} onClick={handleWishlist} href="#"><i id={product.id} onClick={handleWishlist} className="fa fa-heart-o"></i> add to wishlist</a></li>
                                         <li><a href="#"><i className="fa fa-exchange"></i> add to compare</a></li>
                                     </ul>
 
@@ -325,6 +340,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         updateCartCount: ( (count) => dispatch({type: 'CART_COUNT', value: count})),
+        updateWishlistCount: ( (count) => dispatch({type: 'WISHLIST_COUNT', value: count})),
+        showToast: ( (msg) => dispatch({type: 'SHOW_TOAST', value: msg})),
         hideQuickView: ( () => dispatch({type: 'MODAL_CONTROL', value: false}))
     }
 }
