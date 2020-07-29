@@ -28,7 +28,7 @@ class CartPreview extends Component {
 			if(localStorage.getItem('cartList'))
 				this.saveToShopppingCart(localStorage.getItem('cartList'))
 			else
-				this.getShoppingCartList(result.data.user.id)
+				this.getShoppingCartList()
 
         }).catch(error => {
 			console.log(error)
@@ -37,9 +37,11 @@ class CartPreview extends Component {
 		})
     }
 
-    getShoppingCartList(userId) {
+    getShoppingCartList() {
 
-		axios.get(`/api/product/cart-list/${userId}`).then((
+		axios.get(`/api/product/cart-list/`, {
+            headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}
+        }).then((
             response 
         ) => {
 
@@ -94,8 +96,9 @@ class CartPreview extends Component {
 		let id = parseInt(e.target.id)
 
 		if(this.state.userId) {
-			axios.delete(`/api/product/cart-list/${id}`)
-			.then(response => {
+			axios.delete(`/api/product/cart-list/${id}`, {
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}
+            }).then(response => {
 				if(response.status === 200) {
 
 					if (localStorage.getItem('cartList')) {

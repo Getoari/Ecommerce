@@ -16,7 +16,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'address_id',
     ];
 
     /**
@@ -46,5 +46,9 @@ class User extends Authenticatable implements JWTSubject
 
     public function wishlistProducts() {
         return $this->hasMany('App\Wishlist');
+    }
+
+    public function addresses() {
+        return $this->hasMany('App\Address');
     }
 }

@@ -11,7 +11,7 @@ const Main = () => (
         <Switch>
             <Route exact path='/' component={Home}/>
             <Route exact path='/shopping-cart' component={props => <ShoppingCart {...props}/>} />
-            <Route exact path='/checkout' component={Checkout} />
+            <Route exact path='/checkout' component={props => <Checkout {...props}/>} />
             <Route exact path='/wishlist' component={props => <Wishlist {...props}/>} />
         </Switch>
     </main>

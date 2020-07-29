@@ -25,6 +25,8 @@
     "sass-loader": "^7.1.0"
   },
   "dependencies": {
+    "@stripe/react-stripe-js": "^1.1.2",
+    "@stripe/stripe-js": "^1.8.0",
     "dotenv": "^8.2.0",
     "font-awesome": "^4.7.0",
     "react-bootstrap": "^1.2.2",

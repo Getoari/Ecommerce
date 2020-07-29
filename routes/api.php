@@ -22,9 +22,18 @@ Route::get('/auth', 'UserController@getAuthenticatedUser');
 Route::post('/register', 'UserController@register');
 Route::post('/login', 'UserController@login');
 
+// Address
+Route::get('/user/default-address', 'UserAddressController@show');
+Route::post('/user/create-user-address', 'UserAddressController@createUser');
+Route::post('/user/address', 'UserAddressController@store');
+
 // Product
 Route::get('/products/{id}', 'ProductController@show');
 Route::get('/product/hot-deal', 'ProductDealsController@hotDeals');
+
+// Product Orders
+Route::post('/stripe', 'ProductOrdersController@stripePost');
+Route::post('/product/orders', 'ProductOrdersController@store');
 
 // Product Categories
 Route::get('/product/categories', 'ProductCategoriesController@index');
@@ -33,7 +42,7 @@ Route::get('/product/categories/{id}/new', 'ProductCategoriesController@new');
 
 // Product Shopping Cart
 Route::get('/product/cart-list/count', 'ProductShoppingCartController@cartCount');
-Route::get('/product/cart-list/{id}', 'ProductShoppingCartController@show');
+Route::get('/product/cart-list/', 'ProductShoppingCartController@index');
 Route::post('/product/cart-list', 'ProductShoppingCartController@store');
 Route::post('/product/cart-list/guest', 'ProductShoppingCartController@guestCart');
 Route::put('/product/cart-list/{id}', 'ProductShoppingCartController@update');
