@@ -18,9 +18,10 @@ const Sidebar = () => (
 
       {/* <!-- Nav Item - Dashboard --> */}
       <li className="nav-item active">
-        <a className="nav-link" href="index.html">
+        <Link className="nav-link" to="/dashboard/">
           <i className="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
+          <span>Dashboard</span>
+        </Link>
       </li>
 
       {/* <!-- Divider --> */}
@@ -41,7 +42,6 @@ const Sidebar = () => (
           <div className="bg-white py-2 collapse-inner rounded">
             <Link className="collapse-item" to="/dashboard/products">All Products</Link>
             <Link className="collapse-item" to="/dashboard/new-product">New Product</Link>
-            <Link className="collapse-item" to="/dashboard/stocks">Stocks</Link>
             <Link className="collapse-item" to="/dashboard/categories">Categories</Link>
           </div>
         </div>
@@ -54,9 +54,7 @@ const Sidebar = () => (
         </a>
         <div id="collapseThree" className="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
           <div className="bg-white py-2 collapse-inner rounded">
-            <Link className="collapse-item" to="/dashboard/products">All Products</Link>
-            <Link className="collapse-item" to="/dashboard/stocks">Stocks</Link>
-            <Link className="collapse-item" to="/dashboard/categories">Categories</Link>
+            <Link className="collapse-item" to="/dashboard/orders">All Orders</Link>
           </div>
         </div>
       </li>
@@ -65,9 +63,9 @@ const Sidebar = () => (
       <hr className="sidebar-divider d-none d-md-block" />
 
       {/* <!-- Sidebar Toggler (Sidebar) --> */}
-      <div className="text-center d-none d-md-inline">
+      {/* <div className="text-center d-none d-md-inline">
         <button className="rounded-circle border-0" id="sidebarToggle"></button>
-      </div>
+      </div> */}
 
     </ul>
 )

@@ -95742,7 +95742,7 @@ var Home = function (_Component) {
                       'div',
                       { className: 'h5 mb-0 font-weight-bold text-gray-800' },
                       '$',
-                      monthlyEarningAvg ? Object(__WEBPACK_IMPORTED_MODULE_2__functions_NumberFunctions__["a" /* numberWithComma */])(monthlyEarningAvg) : 0
+                      monthlyEarningAvg ? Object(__WEBPACK_IMPORTED_MODULE_2__functions_NumberFunctions__["a" /* numberWithComma */])(monthlyEarningAvg.toFixed(0)) : 0
                     )
                   ),
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -95778,7 +95778,7 @@ var Home = function (_Component) {
                       'div',
                       { className: 'h5 mb-0 font-weight-bold text-gray-800' },
                       '$',
-                      annualEarningAvg ? Object(__WEBPACK_IMPORTED_MODULE_2__functions_NumberFunctions__["a" /* numberWithComma */])(annualEarningAvg) : 0
+                      annualEarningAvg ? Object(__WEBPACK_IMPORTED_MODULE_2__functions_NumberFunctions__["a" /* numberWithComma */])(annualEarningAvg.toFixed(0)) : 0
                     )
                   ),
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -116034,6 +116034,7 @@ var NewProduct = function (_Component) {
                 _this3.setState(_extends({}, _this3.baseState, {
                     success: true
                 }));
+                _this3.getCategories();
             }).catch(function (err) {
                 _this3.setState({
                     error: err.response.data.errors,
@@ -116135,7 +116136,7 @@ var NewProduct = function (_Component) {
                                             { className: 'small mb-1' },
                                             'Name'
                                         ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', name: 'name', value: this.state.name, onChange: this.handleChange, type: 'text', placeholder: 'Product name', required: false })
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', name: 'name', value: this.state.name, onChange: this.handleChange, type: 'text', placeholder: 'Product name', required: true })
                                     ),
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'div',
@@ -116165,7 +116166,7 @@ var NewProduct = function (_Component) {
                                             { className: 'small mb-1' },
                                             'Brand'
                                         ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', name: 'brand', value: this.state.brand, onChange: this.handleChange, type: 'text', placeholder: 'Product brand', required: false })
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', name: 'brand', value: this.state.brand, onChange: this.handleChange, type: 'text', placeholder: 'Product brand', required: true })
                                     ),
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'div',
@@ -116187,7 +116188,7 @@ var NewProduct = function (_Component) {
                                                     '$'
                                                 )
                                             ),
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', name: 'price', value: this.state.price, onChange: this.handleChange, type: 'text', placeholder: 'Product price', required: false })
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', name: 'price', value: this.state.price, onChange: this.handleChange, type: 'text', placeholder: 'Product price', required: true })
                                         )
                                     ),
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -116198,7 +116199,7 @@ var NewProduct = function (_Component) {
                                             { className: 'small mb-1' },
                                             'Upload Photo(s)'
                                         ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', onChange: this.fileSelectHandler, type: 'file', multiple: true, style: { paddingTop: '3px' }, required: false })
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', onChange: this.fileSelectHandler, type: 'file', multiple: true, style: { paddingTop: '3px' }, required: true })
                                     )
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -116212,7 +116213,7 @@ var NewProduct = function (_Component) {
                                             { className: 'small mb-1' },
                                             'Description'
                                         ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { rows: '2', className: 'form-control', name: 'description', value: this.state.description, onChange: this.handleChange, placeholder: 'Product description', required: false })
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { rows: '2', className: 'form-control', name: 'description', value: this.state.description, onChange: this.handleChange, placeholder: 'Product description', required: true })
                                     ),
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'div',
@@ -116222,7 +116223,7 @@ var NewProduct = function (_Component) {
                                             { className: 'small mb-1' },
                                             'Details'
                                         ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { rows: '4', className: 'form-control', name: 'details', value: this.state.details, onChange: this.handleChange, placeholder: 'Product details', required: false })
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { rows: '4', className: 'form-control', name: 'details', value: this.state.details, onChange: this.handleChange, placeholder: 'Product details', required: true })
                                     ),
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'div',
@@ -116235,7 +116236,7 @@ var NewProduct = function (_Component) {
                                                 { className: 'small mb-1' },
                                                 'Size'
                                             ),
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', type: 'text', name: 'size', placeholder: 'Product size', onChange: this.handleChange, value: this.state.size, required: false })
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', type: 'text', name: 'size', placeholder: 'Product size', onChange: this.handleChange, value: this.state.size, required: true })
                                         ),
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             'div',
@@ -116245,7 +116246,7 @@ var NewProduct = function (_Component) {
                                                 { className: 'small mb-1' },
                                                 'Color'
                                             ),
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', type: 'text', name: 'color', placeholder: 'Product color', onChange: this.handleChange, value: this.state.color, required: false })
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', type: 'text', name: 'color', placeholder: 'Product color', onChange: this.handleChange, value: this.state.color, required: true })
                                         ),
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             'div',
@@ -116255,7 +116256,7 @@ var NewProduct = function (_Component) {
                                                 { className: 'small mb-1' },
                                                 'Quantity'
                                             ),
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', type: 'number', name: 'quantity', onChange: this.handleChange, value: this.state.quantity, required: false })
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', type: 'number', name: 'quantity', onChange: this.handleChange, value: this.state.quantity, required: true })
                                         )
                                     )
                                 )
@@ -116306,8 +116307,8 @@ var Sidebar = function Sidebar() {
       'li',
       { className: 'nav-item active' },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'a',
-        { className: 'nav-link', href: 'index.html' },
+        __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+        { className: 'nav-link', to: '/dashboard/' },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fas fa-fw fa-tachometer-alt' }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'span',
@@ -116353,11 +116354,6 @@ var Sidebar = function Sidebar() {
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-            { className: 'collapse-item', to: '/dashboard/stocks' },
-            'Stocks'
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
             { className: 'collapse-item', to: '/dashboard/categories' },
             'Categories'
           )
@@ -116385,28 +116381,13 @@ var Sidebar = function Sidebar() {
           { className: 'bg-white py-2 collapse-inner rounded' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-            { className: 'collapse-item', to: '/dashboard/products' },
-            'All Products'
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-            { className: 'collapse-item', to: '/dashboard/stocks' },
-            'Stocks'
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-            { className: 'collapse-item', to: '/dashboard/categories' },
-            'Categories'
+            { className: 'collapse-item', to: '/dashboard/orders' },
+            'All Orders'
           )
         )
       )
     ),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', { className: 'sidebar-divider d-none d-md-block' }),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      'div',
-      { className: 'text-center d-none d-md-inline' },
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('button', { className: 'rounded-circle border-0', id: 'sidebarToggle' })
-    )
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', { className: 'sidebar-divider d-none d-md-block' })
   );
 };
 

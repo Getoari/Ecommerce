@@ -72,7 +72,7 @@ class ProductOrdersController extends Controller
                 'stock_id' => $item['stock_id'], 
                 'quantity' => $item['quantity'],
                 'note' => $note,
-                'status' => 'pending...'
+                'status' => 'pending'
             ]);
 
             Stock::findOrFail($item['stock_id'])->decrement('quantity', $item['quantity']);

@@ -64,6 +64,7 @@ class NewProduct extends Component {
                 ...this.baseState,
                 success: true
             })
+            this.getCategories()
         }).catch(err => {
             this.setState({
                 error: err.response.data.errors,
@@ -129,7 +130,7 @@ class NewProduct extends Component {
                             <div className="col-xl-6">
                                 <div className="form-group">
                                     <label className="small mb-1">Name</label>
-                                    <input className="form-control" name="name" value={this.state.name} onChange={this.handleChange} type="text" placeholder="Product name"  required={false} />
+                                    <input className="form-control" name="name" value={this.state.name} onChange={this.handleChange} type="text" placeholder="Product name"  required />
                                 </div>
                                 <div className="form-group">
                                     <label className="small mb-1">Category</label>
@@ -140,7 +141,7 @@ class NewProduct extends Component {
                                 </div>
                                 <div className="form-group">
                                     <label className="small mb-1">Brand</label>
-                                    <input className="form-control" name="brand" value={this.state.brand} onChange={this.handleChange} type="text" placeholder="Product brand" required={false} />
+                                    <input className="form-control" name="brand" value={this.state.brand} onChange={this.handleChange} type="text" placeholder="Product brand" required />
                                 </div>
                                 <div className="form-group">
                                     <label className="small mb-1">Price</label>
@@ -148,35 +149,35 @@ class NewProduct extends Component {
                                         <div className="input-group-prepend">
                                             <div className="input-group-text">$</div>
                                         </div>
-                                        <input className="form-control" name="price" value={this.state.price} onChange={this.handleChange} type="text" placeholder="Product price" required={false} />
+                                        <input className="form-control" name="price" value={this.state.price} onChange={this.handleChange} type="text" placeholder="Product price" required />
                                     </div>
                                 </div>
                                 <div className="form-group">
                                     <label className="small mb-1">Upload Photo(s)</label>
-                                    <input className="form-control" onChange={this.fileSelectHandler} type="file" multiple style={{paddingTop: '3px'}} required={false} />
+                                    <input className="form-control" onChange={this.fileSelectHandler} type="file" multiple style={{paddingTop: '3px'}} required />
                                 </div>
                             </div>
                             <div className="col-xl-6">
                                 <div className="form-group">
                                     <label className="small mb-1">Description</label>
-                                    <textarea rows='2' className="form-control" name="description" value={this.state.description} onChange={this.handleChange} placeholder="Product description" required={false} />
+                                    <textarea rows='2' className="form-control" name="description" value={this.state.description} onChange={this.handleChange} placeholder="Product description" required />
                                 </div>
                                 <div className="form-group">
                                     <label className="small mb-1">Details</label>
-                                    <textarea rows='4' className="form-control" name="details" value={this.state.details} onChange={this.handleChange} placeholder="Product details" required={false} />
+                                    <textarea rows='4' className="form-control" name="details" value={this.state.details} onChange={this.handleChange} placeholder="Product details" required />
                                 </div>
                                 <div className="form-row">
                                     <div className="form-group col-md-5">
                                         <label className="small mb-1">Size</label>
-                                        <input className="form-control" type="text" name="size" placeholder="Product size" onChange={this.handleChange} value={this.state.size} required={false} />
+                                        <input className="form-control" type="text" name="size" placeholder="Product size" onChange={this.handleChange} value={this.state.size} required />
                                     </div>
                                     <div className="form-group col-md-5">
                                         <label className="small mb-1">Color</label>
-                                        <input className="form-control" type="text" name="color" placeholder="Product color" onChange={this.handleChange} value={this.state.color} required={false} />
+                                        <input className="form-control" type="text" name="color" placeholder="Product color" onChange={this.handleChange} value={this.state.color} required />
                                     </div>
                                     <div className="form-group col-md-2">
                                         <label className="small mb-1">Quantity</label>
-                                        <input className="form-control" type="number" name="quantity" onChange={this.handleChange} value={this.state.quantity} required={false} />
+                                        <input className="form-control" type="number" name="quantity" onChange={this.handleChange} value={this.state.quantity} required />
                                     </div>
                                 </div>
                                 
