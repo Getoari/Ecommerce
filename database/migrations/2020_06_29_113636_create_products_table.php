@@ -24,7 +24,7 @@ class CreateProductsTable extends Migration
             $table->string('description');
             $table->string('details');
             $table->double('price');
-            $table->timestamps();  
+            $table->timestamps(); 
         });
 
         if(config('app.debug') == true) {

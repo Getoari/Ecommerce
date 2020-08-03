@@ -10,6 +10,18 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 
 class ProductShoppingCartController extends Controller
 {
+    public function index(Request $request) {
+
+        $user = JWTAuth::parseToken()->authenticate();
+
+        $cartList = $user->cartItems()
+                ->with('stock.product')
+                ->orderBy('id', 'desc')
+                ->get();
+        
+        return $cartList;
+    }
+
     public function store(Request $request) {
 
         $user = JWTAuth::parseToken()->authenticate();
@@ -21,8 +33,8 @@ class ProductShoppingCartController extends Controller
             foreach( $cartList as $cartArrayList) {
                 foreach($cartArrayList as $cartItem) {
 
-                    $item = ShoppingCart::where('stock_id', $cartItem['stock_id'])
-                            ->where('user_id', $user->id)
+                    $item = $user->cartItems()
+                            ->where('stock_id', $cartItem['stock_id'])
                             ->first();
 
                     if (!$item) {
@@ -37,8 +49,8 @@ class ProductShoppingCartController extends Controller
 
         } else {
 
-            $item = ShoppingCart::where('stock_id', $request->stockId)
-                    ->where('user_id', $user->id)
+            $item = $user->cartItems()
+                    ->where('stock_id', $request->stockId)
                     ->first();
 
             if (!$item) {
@@ -60,16 +72,6 @@ class ProductShoppingCartController extends Controller
             return $user->cartItems()->count();
         }
 
-    }
-
-    public function show($id) {
-
-        $cartList = ShoppingCart::with('stock.product')
-                ->where('user_id', $id)
-                ->orderBy('id', 'desc')
-                ->get();
-        
-        return $cartList;
     }
 
     public function guestCart(Request $request) {
@@ -108,10 +110,14 @@ class ProductShoppingCartController extends Controller
 
     public function destroy($id) {
 
-        $cartItem = ShoppingCart::findOrFail($id);
+        $user = JWTAuth::parseToken()->authenticate();
 
-        if($cartItem)
-            $cartItem->delete();
+        if($user) {
+            $cartItem = $user->cartItems()->findOrFail($id);
+    
+            if($cartItem)
+                $cartItem->delete();
+        }
 
         return $cartItem;
     }

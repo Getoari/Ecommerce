@@ -66,6 +66,11 @@
     font-size: 24px;
     color: #D10024;
   }
+
+  .cart-summary .order-col .order-total-disabled {
+    font-size: 24px;
+    color: #6b6b6b;
+  }
   
   .cart-details .payment-method {
     margin: 30px 0px;
@@ -73,7 +78,23 @@
   
   .cart-details .order-submit {
     display: block;
+    font-size: 16px;
     margin-top: 30px;
+    width: 100%;
+  }
+
+  .cart-details .order-submit:hover {
+    color: #FFF !important;
+    background-color: #ef233c;
+  }
+
+  .cart-details .order-submit-disabled {
+    display: block;
+    pointer-events: none;
+    background-color: #6b6b6b;
+    font-size: 16px;
+    margin-top: 30px;
+    width: 100%;
   }
 
   .item-select {
@@ -88,6 +109,7 @@
       height: 20px;
       width: 20px;
   }
+
   .item-select input:checked {
       background-color:#D10024;
   }
@@ -113,16 +135,16 @@
     margin-top: 5px;
   }
 
-  .checkbox-select-all label {
+  .checkbox-select-all .input-checkbox label {
     vertical-align: sub;
   }
 
-  .checkbox-select-all input[type="checkbox"]+label span {
+  .checkbox-select-all .input-checkbox input[type="checkbox"]+label span {
     height: 20px;
     width: 20px;
   }
 
-  .checkbox-select-all input[type="checkbox"]+label span::after {
+  .checkbox-select-all .input-checkbox input[type="checkbox"]+label span::after {
     left: 3px;
     font-size: 13px;
   }
@@ -162,7 +184,7 @@
     border: 2px solid transparent;
     height: 40px;
     padding: 0 30px;
-    background-color: #ef233c;
+    background-color: #D10024;
     color: #FFF;
     text-transform: uppercase;
     font-weight: 700;
@@ -173,7 +195,7 @@
   
 .cart-item-box .item-checkout-btn:hover {
     color: #FFF;
-    background-color: #D10024;
+    background-color: #ef233c;
   }
   
   

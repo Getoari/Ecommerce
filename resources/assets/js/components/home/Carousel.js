@@ -5,8 +5,6 @@ import Spinner from 'react-bootstrap/Spinner'
 import Button from 'react-bootstrap/Button'
 import { connect } from 'react-redux'
 
-import QuickView from './QuickView'
-
 class Carousel extends Component {
 	constructor(props) {
 		super(props)
@@ -18,6 +16,7 @@ class Carousel extends Component {
 			products: []
 		}
 
+		this.handleWishlist = this.handleWishlist.bind(this)
 		this.handleClick = this.handleClick.bind(this)
 	}
 
@@ -39,9 +38,28 @@ class Carousel extends Component {
         })
 	}
 
+	handleWishlist(e) {
+
+		if(!localStorage.getItem('token')) {
+			this.props.showLogin()
+		} else {
+			axios.post('/api/product/wishlist', {
+				productId: e.target.id
+			}, {
+				headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}
+			}).then(response => {
+				if(response.status === 200) {
+					this.props.updateWishlistCount(response.data)
+					this.props.showToast('Added to wishlist!')
+				} 
+			}).catch(error => {
+				this.props.showToast('Product is already in the wishlist!')
+			})
+		}
+	}
+
 	handleClick(e) {
 
-		
 		const id = e.target.id
 		
 		if(e.target.className == 'add-to-cart-btn') {
@@ -54,7 +72,6 @@ class Carousel extends Component {
 			this.getProducts(id)
 			this.setState({currentCategory: id})
 		}
-
 	}
 
 	getProducts(categoryId) {
@@ -166,7 +183,7 @@ class Carousel extends Component {
 																<i className={ product.review == 5 ? "fa fa-star" : (product.review > 4 && product.review < 5) ? "fa fa-star-half-o" : "fa fa-star-o"}></i>
 															</div>
 															<div className="product-btns">
-																<button className="add-to-wishlist"><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
+																<Button id={product.id} className="add-to-wishlist" onClick={this.handleWishlist} bsPrefix="q"><i id={product.id} className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></Button>
 																<button className="add-to-compare"><i className="fa fa-exchange"></i><span className="tooltipp">add to compare</span></button>
 																<Button id={product.id} className="qucik-view" onClick={this.handleClick} bsPrefix="q"><i id={product.id} onClick={this.handleClick} className="fa fa-eye"></i><span className="tooltipp">quick view</span></Button>
 															</div>
@@ -197,13 +214,20 @@ class Carousel extends Component {
 	}
 } 
 
-
-const mapDispatchToProps = dispatch => {
+const mapStateToProps = state => {
     return {
-        showQuickView: ( (id) => dispatch({
-			type: 'QUICKVIEW_CONTROL', value: id
-		}))
+        productId: state.product_id,
+        showModal: state.show_modal
     }
 }
 
-export default connect(null, mapDispatchToProps)(Carousel)
+const mapDispatchToProps = dispatch => {
+    return {
+        showQuickView: ( (id) => dispatch({type: 'QUICKVIEW_CONTROL', value: id})),
+        showLogin: ( () => dispatch({type: 'LOGIN_CONTROL', value: true})),
+        updateWishlistCount: ( (count) => dispatch({type: 'WISHLIST_COUNT', value: count})),
+        showToast: ( (msg) => dispatch({type: 'SHOW_TOAST', value: msg}))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Carousel)

@@ -32,9 +32,8 @@ function Register(props) {
             password: password,
             password_confirmation: passwordConfirm
         }).then(result => {
-            console.log(result.data)
             localStorage.setItem('token', result.data.token)
-            props.addUser(result.data.user.name)
+            props.addUser(result.data.user)
         }).catch(err => {
             setErrorKeys(Object.keys(JSON.parse(err.response.data)))
             setError(JSON.parse(err.response.data))

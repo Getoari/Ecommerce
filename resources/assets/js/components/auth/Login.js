@@ -14,7 +14,11 @@ function Login(props) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState(false)
-    const handleClose = () => setShow(false)
+    
+    const handleClose = () => {
+        setShow(false)
+        props.hideLogin()
+    }
     
     const handleShow = () => {
         setShow(true)
@@ -46,7 +50,7 @@ function Login(props) {
     return (
         <React.Fragment>
         <Button onClick={handleShow} bsPrefix="auth"><i className="fa fa-sign-in"></i>Login</Button>
-        <Modal show={show} onHide={handleClose}>
+        <Modal show={show || props.showLogin} onHide={handleClose}>
             
                 <Modal.Header closeButton>
                     <Modal.Title className="auth-title">
@@ -100,10 +104,17 @@ function Login(props) {
     )
 }
 
-const mapDispatchToProps = dispatch => {
+const mapStateToProps = state => {
     return {
-        addUser: (user) => dispatch({type: 'USER', value: user})
+        showLogin: state.show_login
     }
 }
 
-export default connect(null, mapDispatchToProps)(Login)
+const mapDispatchToProps = dispatch => {
+    return {
+        addUser: (user) => dispatch({type: 'USER', value: user}),
+        hideLogin: () => dispatch({type: 'LOGIN_CONTROL', value: false})
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

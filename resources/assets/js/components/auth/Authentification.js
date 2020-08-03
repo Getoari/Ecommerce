@@ -13,7 +13,7 @@ class Authentification extends Component {
         super(props)
 
         this.state = {
-            name: '',
+            user: '',
             redirect: ''
         }
 
@@ -28,8 +28,8 @@ class Authentification extends Component {
 
     componentDidUpdate() {
         if(this.props.user)
-            if(this.props.user.name != this.state.name) 
-                this.setState({name: this.props.user.name})
+            if(this.props.user.name != this.state.user.name) 
+                this.setState({user: this.props.user})
     }
 
     getAuth(token) {
@@ -37,10 +37,9 @@ class Authentification extends Component {
             headers: { Authorization: `Bearer ${token}`}
         }).then(result => {
             this.setState({
-                name: result.data.user.name
+                user: result.data.user
             })
         }).catch(error => {
-            console.log(error)
             this.logout()
         })
     }
@@ -48,13 +47,16 @@ class Authentification extends Component {
     logout() {
         localStorage.removeItem('token')
         this.setState({
-            name: ''
+            user: ''
         })
         this.props.removeUser()
     }
 
     handleClick(e) {
         switch(e.target.id) {
+            case '0':
+                window.location.href = '/dashboard';
+                break;
             case '1':
                 this.setState({redirect: 'my-account'})
                 break;
@@ -82,10 +84,11 @@ class Authentification extends Component {
                 <Dropdown>
                     <Dropdown.Toggle variant="toggle" id="dropdown-basic">
                             <i className="fa fa-user-o"></i>
-                            <span>{this.state.name}</span>
+                            <span>{this.state.user.name}</span>
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu onClick={this.handleClick}>
+                        {this.state.user.role_id !== null && <Dropdown.Item id="0" >Dashboard</Dropdown.Item>}
                         <Dropdown.Item id="1" >My Account</Dropdown.Item>
                         <Dropdown.Item id="2" >Track My Order</Dropdown.Item>                          
                         <Dropdown.Divider />

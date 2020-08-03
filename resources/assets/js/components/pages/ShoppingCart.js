@@ -20,6 +20,7 @@ class ShoppingCart extends Component {
 
 		this.handleChange = this.handleChange.bind(this)
 		this.handleDelete = this.handleDelete.bind(this)
+		this.handleCheckout = this.handleCheckout.bind(this)
 	}
 
 	componentDidMount() {
@@ -58,13 +59,13 @@ class ShoppingCart extends Component {
 		})
     }
 
-	getShoppingCartList(userId) {
+	getShoppingCartList() {
 
 		this.setState({loading: true})
 
-		axios.get(`/api/product/cart-list/${userId}`).then((
-            response 
-        ) => {
+		axios.get(`/api/product/cart-list/`, {
+            headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}
+        }).then(( response ) => {
 
 			let localCartList = null
 			if(localStorage.getItem('cartList') !== null)
@@ -193,8 +194,9 @@ class ShoppingCart extends Component {
 		let id = parseInt(e.target.id)
 
 		if(this.state.userId) {
-			axios.delete(`/api/product/cart-list/${id}`)
-			.then(response => {
+			axios.delete(`/api/product/cart-list/${id}`, {
+				headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}
+			}).then(response => {
 				if(response.status === 200) {
 					let list = this.state.selectedList
 					list = list.filter(item => item !== id)
@@ -226,6 +228,21 @@ class ShoppingCart extends Component {
 			this.calcTotal(selectedItems)
 		}
 	}
+
+	handleCheckout(e) {
+	
+		const id = parseInt(e.target.id)
+		
+		let selectCheckout = []
+		
+		if(id !== 0)
+			selectCheckout = [id]
+		else
+			selectCheckout = this.state.selectedList
+		
+		localStorage.setItem('selectedList', JSON.stringify(selectCheckout))
+
+	} 
 
 	render() {
 
@@ -317,8 +334,8 @@ class ShoppingCart extends Component {
 												<h4 className="product-price">${item.stock.product.price}</h4>
 											</div>
 											<div className="delete-icon"><i id={item.id} onClick={this.handleDelete} className="fa fa-trash" aria-hidden="true"></i></div>
-											<Link to={'/checkout'}>
-												<button className="item-checkout-btn">checkout</button>
+											<Link onClick={this.handleCheckout} to={'/checkout'}>
+												<button id={item.id}  className="item-checkout-btn">checkout</button>
 											</Link>
 										</div>
 									</div>
@@ -326,13 +343,11 @@ class ShoppingCart extends Component {
 								{/* /Cart Items */}
 							</div>
 							{/* <!-- /Orders --> */}
-
+							
 							{/* <!-- Order Summary --> */}
 							<div className="col-md-4 cart-details">
 								<div className="section-title text-center">
-									<h3 className="title">
-										Order Summary {this.state.selectedList.length !== 0 && '(' + this.state.selectedList.length + ')'}
-									</h3>
+									<h3 className="title">Order Summary</h3>
 								</div>
 								<div className="cart-summary">
 									<div className="order-col">
@@ -346,11 +361,20 @@ class ShoppingCart extends Component {
 									<hr/>
 									<div className="order-col">
 										<div><strong>TOTAL</strong></div>
-										<div><strong className="order-total">${this.state.total.toFixed(2)}</strong></div>
+										<div>
+											<strong className={this.state.selectedList.length !== 0 ? "order-total" : "order-total-disabled"}>
+												${this.state.total.toFixed(2)}
+											</strong>
+										</div>
 									</div>
 								</div>
-								
-								<a href="#" className="primary-btn order-submit">Checkout</a>
+								<Link id={0} 
+									onClick={this.handleCheckout} 
+									to={'/checkout'} 
+									className={this.state.selectedList.length !== 0 ? "primary-btn order-submit" : "primary-btn order-submit-disabled"}
+								>
+									Checkout {this.state.selectedList.length !== 0 && '(' + this.state.selectedList.length + ')'}
+								</Link>
 							</div>
 							{/* <!-- /Order Summary --> */}
 						</div>
