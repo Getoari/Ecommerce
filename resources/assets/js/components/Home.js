@@ -14,10 +14,10 @@ function Home(props) {
             <ToastMessage />
             <Carousel title="New Products" id="1" />
             
-            {/* <HotDeals /> */}
+            <HotDeals />
     
-            {/* <Carousel title="Top Selling" id="1" />
-            <Widgets />     */}
+            <Carousel title="Top Selling" id="2" />
+            <Widgets />    
         </div>
     )
 } 

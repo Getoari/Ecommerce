@@ -20,6 +20,7 @@ class CreateStocksTable extends Migration
             $table->string('color');
             $table->integer('quantity');
             $table->timestamps();
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
 
         if(config('app.debug') == true) {

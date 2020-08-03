@@ -161,7 +161,7 @@ class Wishlist extends Component {
                                     </tr>}
                                 </tbody>
                             </table>
-                            { this.state.wishlist.length && 
+                            { this.state.wishlist.length > 0 && 
                                 this.state.total > this.state.perPage &&
                                 <div className="pagination-container"> 
                                 <Pagination

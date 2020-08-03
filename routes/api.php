@@ -17,6 +17,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// Dashboard
+Route::get('/dashboard', 'DashboardController@index');
+
 // JWT Authenficiation
 Route::get('/auth', 'UserController@getAuthenticatedUser');
 Route::post('/register', 'UserController@register');
@@ -28,8 +31,11 @@ Route::post('/user/create-user-address', 'UserAddressController@createUser');
 Route::post('/user/address', 'UserAddressController@store');
 
 // Product
+Route::get('/products', 'ProductController@index');
 Route::get('/products/{id}', 'ProductController@show');
 Route::get('/product/hot-deal', 'ProductDealsController@hotDeals');
+Route::post('/products', 'ProductController@store');
+Route::delete('/products/{id}', 'ProductController@destroy');
 
 // Product Orders
 Route::post('/stripe', 'ProductOrdersController@stripePost');

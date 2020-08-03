@@ -15,4 +15,8 @@ class Order extends Model
     public function stock() {
         return $this->belongsTo('App\Stock');
     }
+
+    public function product(){
+        return $this->hasOneThrough('App\Product', 'App\Stock');
+    }
 }
