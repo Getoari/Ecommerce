@@ -1,11 +1,26 @@
 import React from 'react'
+import HotDeals from './home/HotDeals'
 
-const Home = () => (
-    <div>
+import Collections from './home/Collections'
+import Carousel from './home/Carousel'
+import Widgets from './home/Widgets'
+import ToastMessage from './home/ToastMessage'
 
-        <h1> Home route !</h1>
+function Home(props) {
 
-    </div>
-)
+    return (
+        <div>
+            <Collections />
+            <ToastMessage />
+            <Carousel title="New Products" id="1" />
+            
+            <HotDeals />
+    
+            <Carousel title="Top Selling" id="2" />
+            <Widgets />    
+        </div>
+    )
+} 
+
 
 export default Home

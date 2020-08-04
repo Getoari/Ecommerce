@@ -1,0 +1,115 @@
+.auth-primary {
+    border: 0 !important;
+    background-color: transparent;
+    color: #FFF;
+    font-weight: 500;
+    padding: 0;
+    transition: 0.2s color;
+}
+
+.auth-title {
+    margin-left: 1em;
+    width: 100%;
+    text-align: center;
+}
+
+.form-alert .alert-danger {
+    padding-left: 55px;
+    height: auto;
+}
+
+.form-alert .alert-danger .fa-exclamation-triangle {
+    font-size: 18px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    width: 46px;
+    height: 100%;
+    text-align: center;
+    line-height: 44px;
+    background: transparent;
+    border-right: 1px solid #f5c6cb; 
+}
+
+.modal-body > .auth {
+    padding: 5% 12%;
+}
+
+.modal-body > .auth > .form-group {
+    position: relative;
+    border: 1px solid #e6e6e6;
+}
+
+.modal-body > .auth > .form-group > i {
+    font-size: 18px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    height: 46px;
+    width: 46px;
+    color: #000;
+    background: #FFF;
+    text-align: center;
+    line-height: 44px;
+    transition: all 0.3s ease-out;
+    pointer-events: none;
+    border-right: 1px solid #e6e6e6;
+}
+
+.modal-body > .auth > .form-group > .auth-input {
+    font-size: 14px;
+    font-weight: 400;
+    padding: 10px 15px 10px 55px;
+    position: relative;
+    width: 100%;
+    height: 46px;
+    color: #000;
+    border: none;
+    background: #FFF;
+    transition: color 0.3s ease-out;
+}
+
+.modal-body > .auth > button[type=submit] {
+    margin-top: 15px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 12px 0;
+    letter-spacing: 0;
+    color: #fff;
+    text-shadow: none;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+.auth-primary:hover {
+    color: #D10024 !important;
+    text-decoration: none !important;
+    outline: none;
+}
+
+.btn-toggle {
+    padding: 0 !important;
+}
+
+.btn-toggle:focus {
+    outline: 0;
+    box-shadow: none !important;
+}
+
+.btn-toggle > span{
+    color: #FFF;
+    font-size: 12px;
+}
+
+.dropdown-menu > a {
+    color: #2B2D42 !important;
+}
+.dropdown-menu > a:active {
+    background-color: #FFF !important;
+    color: #D10024;
+}

@@ -1,14 +1,30 @@
-
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700");
 
 // Variables
 @import "variables";
 
+// Slick Theme CSS
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+// Custom CSS
+@import '../css/font-awesome.min.css';
+@import '../css/Checkout.css';
+@import '../css/style.css';
+@import '../css/header.css';
+@import '../css/newsLetter.css';
+@import '../css/Footer.css';
+@import '../css/main.css';
+@import '../css/carousel.css';
+@import '../css/quick-view.css';
+@import '../css/auth.css';
+@import '../css/shopping-cart.css';
+@import '../css/HotDeals.css';
+@import '../css/general.css';
+@import '../css/navigation.css';
+@import '../css/categories.css';
+@import '../css/wishlist.css';
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
-
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}

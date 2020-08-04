@@ -1,0 +1,175 @@
+.billing-details {
+    margin-bottom: 30px;
+  }
+  
+  .shiping-details {
+    margin-bottom: 30px;
+  }
+  
+  .order-details {
+    position: relative;
+    padding: 0px 30px 30px;
+    border-right: 1px solid #E4E7ED;
+    border-left: 1px solid #E4E7ED;
+    border-bottom: 1px solid #E4E7ED;
+    height: fit-content;
+  }
+  
+  .order-details:before {
+    content: "";
+    position: absolute;
+    left: -1px;
+    right: -1px;
+    top: -15px;
+    height: 30px;
+    border-top: 1px solid #E4E7ED;
+    border-left: 1px solid #E4E7ED;
+    border-right: 1px solid #E4E7ED;
+  }
+  
+  .order-summary {
+    margin: 15px 0px;
+  }
+  
+  .order-summary .order-col {
+    display: table;
+    width: 100%;
+  }
+  
+  .order-summary .order-col:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  
+  .order-summary .order-col>div {
+    display: table-cell;
+    padding: 10px 0px;
+  }
+  
+  .order-summary .order-col>div:first-child {
+    width: calc(100% - 150px);
+  }
+  
+  .order-summary .order-col>div:last-child {
+    width: 150px;
+    text-align: right;
+  }
+  
+  .order-summary .order-col .order-total {
+    font-size: 24px;
+    color: #D10024;
+  }
+  
+  .order-details .payment-method {
+    margin: 30px 0px;
+    margin-bottom: 0;
+  }
+  
+  .order-details .order-submit {
+    display: block;
+    margin-top: 30px;
+    
+  }
+
+  .create-btn {
+    float: right;
+    height: 40px;
+    padding: 10px 20px;
+    background: #D10024;
+    color: #FFF;
+    font-weight: 700;
+    border: none;
+  }
+
+  /* Stripe Checkout From  */
+  
+   #payment-form {
+    margin-top: 10px;
+  }
+  #payment-form input {
+    /* border-radius: 6px; */
+    height: 44px;
+    margin-bottom: 6px;
+    padding: 12px;
+    border: 1px solid rgba(50, 50, 93, 0.1);
+    max-height: 44px;
+    font-size: 16px;
+    width: 100%;
+    background: white;
+    box-sizing: border-box;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  #payment-form .card-error {
+    color: #D10024;
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: 22px;
+    text-align: center;
+  }
+  #card-element {
+    padding: 12px;
+    border: 1px solid rgba(50, 50, 93, 0.1);
+    max-height: 44px;
+    width: 100%;
+    background: white;
+    box-sizing: border-box;
+  }
+  #payment-request-button {
+    margin-bottom: 32px;
+  }
+  /* Buttons and links */
+  #payment-form button {
+    background: #D10024;
+    color: #ffffff;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  #payment-form button:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+
+  #place-order-spinner {
+    height: 20px !important;
+    width: 20px !important;
+  }
+
+  #address-card {
+    text-align: center;
+    font-weight: 500;
+    border: 1px solid #E4E7ED;
+    padding: 15px;
+    margin: 25px 0;
+  }
+
+  #address-card > i {
+    color: #D10024;
+    font-size: 68px;
+    margin-bottom: 15px;
+  }
+
+  #login-warning {
+    text-align: center;
+    color: #D10024;
+  }
+
+  #order-success {
+    width: 100%;
+    text-align: center;
+    height: fit-content;
+  }
+
+  #order-success > i {
+    font-size: 68px;
+    margin-bottom: 15px;
+  }
+
+  #order-success > p {
+    font-size: 20px;
+  }
+

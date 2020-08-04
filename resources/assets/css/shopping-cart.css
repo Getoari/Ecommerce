@@ -1,0 +1,219 @@
+/*=========================================================
+	09 -> CHECKOUT PAGE
+===========================================================*/
+
+.billing-details {
+    margin-bottom: 30px;
+  }
+  
+  .shiping-details {
+    margin-bottom: 30px;
+  }
+  
+  .cart-item {
+    position: relative;
+    padding: 25px;
+    border: 1px solid #E4E7ED;
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
+
+  .cart-items {
+      padding: 0 !important;
+  }
+
+  .cart-details {
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    padding: 0px 30px 30px;
+    border: 1px solid #E4E7ED;
+    padding-top: 25px;
+    height: fit-content;
+  }
+  
+  .cart-summary {
+    margin: 15px 0px;
+  }
+  
+  .cart-summary .order-col {
+    display: table;
+    width: 100%;
+  }
+  
+  .cart-summary .order-col:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  
+  .cart-summary .order-col>div {
+    display: table-cell;
+    padding: 10px 0px;
+  }
+  
+  .cart-summary .order-col>div:first-child {
+    width: calc(100% - 150px);
+  }
+  
+  .cart-summary .order-col>div:last-child {
+    width: 150px;
+    text-align: right;
+  }
+  
+  .cart-summary .order-col .order-total {
+    font-size: 24px;
+    color: #D10024;
+  }
+
+  .cart-summary .order-col .order-total-disabled {
+    font-size: 24px;
+    color: #6b6b6b;
+  }
+  
+  .cart-details .payment-method {
+    margin: 30px 0px;
+  }
+  
+  .cart-details .order-submit {
+    display: block;
+    font-size: 16px;
+    margin-top: 30px;
+    width: 100%;
+  }
+
+  .cart-details .order-submit:hover {
+    color: #FFF !important;
+    background-color: #ef233c;
+  }
+
+  .cart-details .order-submit-disabled {
+    display: block;
+    pointer-events: none;
+    background-color: #6b6b6b;
+    font-size: 16px;
+    margin-top: 30px;
+    width: 100%;
+  }
+
+  .item-select {
+      display: flex;
+      align-items: center;
+      padding-top: 10px;
+      position: absolute;
+      top: -25px;
+      left: -15px;
+  }
+  .item-select input {
+      height: 20px;
+      width: 20px;
+  }
+
+  .item-select input:checked {
+      background-color:#D10024;
+  }
+
+  .cart-item-box {
+      position: relative;
+  }
+
+  .cart-item-body .product-name {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .cart-item-body .product-price {
+    color: #D10024;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 7px;
+  }
+
+  .checkbox-select-all {
+    margin-top: 5px;
+  }
+
+  .checkbox-select-all .input-checkbox label {
+    vertical-align: sub;
+  }
+
+  .checkbox-select-all .input-checkbox input[type="checkbox"]+label span {
+    height: 20px;
+    width: 20px;
+  }
+
+  .checkbox-select-all .input-checkbox input[type="checkbox"]+label span::after {
+    left: 3px;
+    font-size: 13px;
+  }
+
+  .cart-item-box .input-checkbox input[type="checkbox"]+label span {
+    height: 20px;
+    width: 20px;
+    top: -15px;
+    left: -15px;
+  }
+
+  .cart-item-box .input-checkbox input[type="checkbox"]+label span:after {
+    left: 3px;
+    font-size: 13px;
+  }
+
+  .delete-icon {
+    position: absolute;
+    top: -10px;
+    right: -5px;
+    cursor: pointer;
+  }
+
+  .cart-item-box .delete-icon .fa-trash {
+    font-size: 18px;
+  }
+
+  .cart-item-box .buy-item {
+    margin-bottom: 30px;
+    float: right;
+  }
+  
+.cart-item-box .item-checkout-btn {
+    position: absolute;
+    right: -15px;
+    bottom: -15px;
+    border: 2px solid transparent;
+    height: 40px;
+    padding: 0 30px;
+    background-color: #D10024;
+    color: #FFF;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 40px;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+  }
+  
+.cart-item-box .item-checkout-btn:hover {
+    color: #FFF;
+    background-color: #ef233c;
+  }
+  
+  
+.cart-item-box .buy-item .qty-label {
+    display: inline-block;
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-right: -15px;
+    margin-bottom: 0px;
+  }
+  
+.cart-item-box .buy-item .qty-label .input-number {
+    width: 90px;
+    display: inline-block;
+    margin: 0 10px;
+  }
+
+  *:focus {
+    outline: none !important;
+}
