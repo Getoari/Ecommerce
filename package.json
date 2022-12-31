@@ -16,13 +16,13 @@
     "bootstrap": "^4.5.0",
     "cross-env": "^5.1",
     "jquery": "^3.5.1",
-    "laravel-mix": "^2.0",
+    "laravel-mix": "^6.0",
     "lodash": "^4.17.4",
     "popper.js": "^1.16.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "sass": "^1.15.2",
-    "sass-loader": "^7.1.0"
+    "sass-loader": "^13.2.0"
   },
   "dependencies": {
     "@stripe/react-stripe-js": "^1.1.2",
